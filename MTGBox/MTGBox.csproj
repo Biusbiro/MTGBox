@@ -33,15 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MtgApiManager.Lib, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MtgApiManager.Lib.1.2.2\lib\netstandard2.0\MtgApiManager.Lib.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +64,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Card.cs" />
+    <Compile Include="Model\ImageUris.cs" />
+    <Compile Include="Model\Legalities.cs" />
+    <Compile Include="Model\Prices.cs" />
+    <Compile Include="Model\PurchaseUris.cs" />
+    <Compile Include="Model\RelatedUris.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormFeature\FormSearchCards.resx">
@@ -107,7 +111,6 @@
   <ItemGroup>
     <Folder Include="FormData\" />
     <Folder Include="FormList\" />
-    <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MTG Black.png" />

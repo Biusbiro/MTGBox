@@ -55,6 +55,8 @@
             this.ContainerGridAndData = new System.Windows.Forms.SplitContainer();
             this.grd = new System.Windows.Forms.DataGridView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.pic1 = new System.Windows.Forms.PictureBox();
+            this.web1 = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.MainContainerSearch)).BeginInit();
             this.MainContainerSearch.Panel1.SuspendLayout();
             this.MainContainerSearch.Panel2.SuspendLayout();
@@ -67,8 +69,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picManaG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContainerGridAndData)).BeginInit();
             this.ContainerGridAndData.Panel1.SuspendLayout();
+            this.ContainerGridAndData.Panel2.SuspendLayout();
             this.ContainerGridAndData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.SuspendLayout();
             // 
             // MainContainerSearch
@@ -85,7 +89,7 @@
             // MainContainerSearch.Panel2
             // 
             this.MainContainerSearch.Panel2.Controls.Add(this.ContainerGridAndData);
-            this.MainContainerSearch.Size = new System.Drawing.Size(1076, 563);
+            this.MainContainerSearch.Size = new System.Drawing.Size(1232, 563);
             this.MainContainerSearch.SplitterDistance = 201;
             this.MainContainerSearch.TabIndex = 2;
             // 
@@ -343,7 +347,12 @@
             // 
             this.ContainerGridAndData.Panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ContainerGridAndData.Panel1.Controls.Add(this.grd);
-            this.ContainerGridAndData.Size = new System.Drawing.Size(871, 563);
+            // 
+            // ContainerGridAndData.Panel2
+            // 
+            this.ContainerGridAndData.Panel2.Controls.Add(this.web1);
+            this.ContainerGridAndData.Panel2.Controls.Add(this.pic1);
+            this.ContainerGridAndData.Size = new System.Drawing.Size(1027, 563);
             this.ContainerGridAndData.SplitterDistance = 652;
             this.ContainerGridAndData.TabIndex = 0;
             // 
@@ -362,12 +371,29 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // pic1
+            // 
+            this.pic1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pic1.Location = new System.Drawing.Point(18, 12);
+            this.pic1.Name = "pic1";
+            this.pic1.Size = new System.Drawing.Size(162, 231);
+            this.pic1.TabIndex = 0;
+            this.pic1.TabStop = false;
+            // 
+            // web1
+            // 
+            this.web1.Location = new System.Drawing.Point(18, 261);
+            this.web1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.web1.Name = "web1";
+            this.web1.Size = new System.Drawing.Size(162, 250);
+            this.web1.TabIndex = 1;
+            // 
             // FormCardList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1076, 563);
+            this.ClientSize = new System.Drawing.Size(1232, 563);
             this.Controls.Add(this.MainContainerSearch);
             this.Name = "FormCardList";
             this.Text = "FormCardList";
@@ -383,9 +409,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.picManaB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picManaG)).EndInit();
             this.ContainerGridAndData.Panel1.ResumeLayout(false);
+            this.ContainerGridAndData.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ContainerGridAndData)).EndInit();
             this.ContainerGridAndData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -418,5 +446,7 @@
         private System.Windows.Forms.ComboBox cboFilter4;
         private System.Windows.Forms.Label lblFilter4;
         private System.Windows.Forms.DataGridView grd;
+        private System.Windows.Forms.WebBrowser web1;
+        private System.Windows.Forms.PictureBox pic1;
     }
 }
