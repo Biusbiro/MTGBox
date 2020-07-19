@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace MTGBox.Model
@@ -6,52 +7,52 @@ namespace MTGBox.Model
     class Card
     {
         [JsonProperty("object")]
-        public string Object { get; set; }
+        public String Object { get; set; }
 
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public String Id { get; set; }
 
         [JsonProperty("oracle_id")]
-        public string OracleId { get; set; }
+        public String OracleId { get; set; }
 
         [JsonProperty("mtgo_id")]
-        public int MtgoId { get; set; }
+        public Int32 MtgoId { get; set; }
 
         [JsonProperty("mtgo_foil_id")]
-        public int MtgoFoilId { get; set; }
+        public Int32 MtgoFoilId { get; set; }
 
         [JsonProperty("tcgplayer_id")]
-        public int TcgplayerId { get; set; }
+        public Int32 TcgplayerId { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public String Name { get; set; }
 
         [JsonProperty("lang")]
-        public string Lang { get; set; }
+        public String Lang { get; set; }
 
         [JsonProperty("released_at")]
-        public string ReleasedAt { get; set; }
+        public String ReleasedAt { get; set; }
 
         [JsonProperty("uri")]
-        public string Uri { get; set; }
+        public String Uri { get; set; }
 
         [JsonProperty("scryfall_uri")]
-        public string ScryfallUri { get; set; }
+        public String ScryfallUri { get; set; }
 
         [JsonProperty("layout")]
-        public string Layout { get; set; }
+        public String Layout { get; set; }
 
         [JsonProperty("highres_image")]
         public bool HighresImage { get; set; }
 
         [JsonProperty("mana_cost")]
-        public string ManaCost { get; set; }
+        public String ManaCost { get; set; }
 
         [JsonProperty("cmc")]
-        public int Cmc { get; set; }
+        public String Cmc { get; set; }
 
         [JsonProperty("type_line")]
-        public string TypeLine { get; set; }
+        public String TypeLine { get; set; }
 
         [JsonProperty("reserved")]
         public bool Reserved { get; set; }
@@ -75,58 +76,58 @@ namespace MTGBox.Model
         public bool Variation { get; set; }
 
         [JsonProperty("set")]
-        public string Set { get; set; }
+        public String Set { get; set; }
 
         [JsonProperty("set_name")]
-        public string SetName { get; set; }
+        public String SetName { get; set; }
 
         [JsonProperty("set_type")]
-        public string SetType { get; set; }
+        public String SetType { get; set; }
 
         [JsonProperty("set_uri")]
-        public string SetUri { get; set; }
+        public String SetUri { get; set; }
 
         [JsonProperty("set_search_uri")]
-        public string SetSearchUri { get; set; }
+        public String SetSearchUri { get; set; }
 
         [JsonProperty("scryfall_set_uri")]
-        public string ScryfallSetUri { get; set; }
+        public String ScryfallSetUri { get; set; }
 
         [JsonProperty("rulings_uri")]
-        public string RulingsUri { get; set; }
+        public String RulingsUri { get; set; }
 
         [JsonProperty("oracle_text")]
-        public string OracleText { get; set; }
+        public String OracleText { get; set; }
 
         [JsonProperty("prints_search_uri")]
-        public string PrintsSearchUri { get; set; }
+        public String PrintsSearchUri { get; set; }
 
         [JsonProperty("collector_number")]
-        public string CollectorNumber { get; set; }
+        public String CollectorNumber { get; set; }
 
         [JsonProperty("digital")]
         public bool Digital { get; set; }
 
         [JsonProperty("rarity")]
-        public string Rarity { get; set; }
+        public String Rarity { get; set; }
 
         [JsonProperty("flavor_text")]
-        public string FlavorText { get; set; }
+        public String FlavorText { get; set; }
 
         [JsonProperty("card_back_id")]
-        public string CardBackId { get; set; }
+        public String CardBackId { get; set; }
 
         [JsonProperty("artist")]
-        public string Artist { get; set; }
+        public String Artist { get; set; }
 
         [JsonProperty("illustration_id")]
-        public string IllustrationId { get; set; }
+        public String IllustrationId { get; set; }
 
         [JsonProperty("border_color")]
-        public string BorderColor { get; set; }
+        public String BorderColor { get; set; }
 
         [JsonProperty("frame")]
-        public string Frame { get; set; }
+        public String Frame { get; set; }
 
         [JsonProperty("full_art")]
         public bool FullArt { get; set; }
@@ -141,31 +142,31 @@ namespace MTGBox.Model
         public bool StorySpotlight { get; set; }
 
         [JsonProperty("edhrec_rank")]
-        public int EdhrecRank { get; set; }
+        public Int32 EdhrecRank { get; set; }
 
         [JsonProperty("multiverse_ids")]
-        public List<int> MultiverseIds { get; set; }
+        public List<Int32> MultiverseIds { get; set; }
 
         [JsonProperty("image_uris")]
         public ImageUris ImageUris { get; set; }
 
         [JsonProperty("colors")]
-        public List<string> Colors { get; set; }
+        public List<String> Colors { get; set; }
 
         [JsonProperty("color_identity")]
-        public List<string> ColorIdentity { get; set; }
+        public List<String> ColorIdentity { get; set; }
 
         [JsonProperty("keywords")]
-        public List<string> Keywords { get; set; }
+        public List<String> Keywords { get; set; }
 
         [JsonProperty("legalities")]
         public Legalities Legalities { get; set; }
 
         [JsonProperty("games")]
-        public List<string> Games { get; set; }
+        public List<String> Games { get; set; }
 
         [JsonProperty("artist_ids")]
-        public List<string> ArtistIds { get; set; }
+        public List<String> ArtistIds { get; set; }
 
         [JsonProperty("prices")]
         public Prices Prices { get; set; }

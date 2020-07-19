@@ -1,19 +1,20 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace MTGBox.Model
 {
     class RelatedUris
     {
         [JsonProperty("gatherer")]
-        public string Gatherer { get; set; }
+        public String Gatherer { get; set; }
 
         [JsonProperty("tcgplayer_decks")]
-        public string TcgplayerDecks { get; set; }
+        public String TcgplayerDecks { get; set; }
 
         [JsonProperty("edhrec")]
-        public string Edhrec { get; set; }
+        public String Edhrec { get; set; }
 
         [JsonProperty("mtgtop8")]
-        public string Mtgtop8 { get; set; }
+        public String Mtgtop8 { get; set; }
     }
 }

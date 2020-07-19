@@ -1,46 +1,47 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace MTGBox.Model
 {
     class Legalities
     {
         [JsonProperty("standard")]
-        public string Standard { get; set; }
+        public String Standard { get; set; }
 
         [JsonProperty("future")]
-        public string Future { get; set; }
+        public String Future { get; set; }
 
         [JsonProperty("historic")]
-        public string Historic { get; set; }
+        public String Historic { get; set; }
 
         [JsonProperty("pioneer")]
-        public string Pioneer { get; set; }
+        public String Pioneer { get; set; }
 
         [JsonProperty("modern")]
-        public string Modern { get; set; }
+        public String Modern { get; set; }
 
         [JsonProperty("legacy")]
-        public string Legacy { get; set; }
+        public String Legacy { get; set; }
 
         [JsonProperty("pauper")]
-        public string Pauper { get; set; }
+        public String Pauper { get; set; }
 
         [JsonProperty("vintage")]
-        public string Vintage { get; set; }
+        public String Vintage { get; set; }
 
         [JsonProperty("penny")]
-        public string Penny { get; set; }
+        public String Penny { get; set; }
 
         [JsonProperty("commander")]
-        public string Commander { get; set; }
+        public String Commander { get; set; }
 
         [JsonProperty("brawl")]
-        public string Brawl { get; set; }
+        public String Brawl { get; set; }
 
         [JsonProperty("duel")]
-        public string Duel { get; set; }
+        public String Duel { get; set; }
 
         [JsonProperty("oldschool")]
-        public string Oldschool { get; set; }
+        public String Oldschool { get; set; }
     }
 }

@@ -1,25 +1,26 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace MTGBox.Model
 {
     class ImageUris
     {
         [JsonProperty("small")]
-        public string Small { get; set; }
+        public String Small { get; set; }
 
         [JsonProperty("normal")]
-        public string Normal { get; set; }
+        public String Normal { get; set; }
 
         [JsonProperty("large")]
-        public string Large { get; set; }
+        public String Large { get; set; }
 
         [JsonProperty("png")]
-        public string Png { get; set; }
+        public String Png { get; set; }
 
         [JsonProperty("art_crop")]
-        public string ArtCrop { get; set; }
+        public String ArtCrop { get; set; }
 
         [JsonProperty("border_crop")]
-        public string BorderCrop { get; set; }
+        public String BorderCrop { get; set; }
     }
 }
