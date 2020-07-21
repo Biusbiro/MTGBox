@@ -1,9 +1,15 @@
-﻿using System;
+﻿using MTGBox.Enum;
+using MTGBox.FormFeature;
+using MTGBox.Model;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,11 +18,13 @@ namespace MTGBox
 {
     public partial class Main : Form
     {
-        private int childFormNumber = 0;
-
+        private Int32 ChildFormNumber = 0;
+        public static Dictionary<ECatalogTypes, Catalog> Catalogs { get; set; }
         public Main()
         {
             InitializeComponent();
+            Catalogs = new Dictionary<ECatalogTypes, Catalog>();
+            LoadCatalogs();
             ShowFormSearch();
         }
 
@@ -24,7 +32,7 @@ namespace MTGBox
         {
             Form childForm = new Form();
             childForm.MdiParent = this;
-            childForm.Text = "Janela " + childFormNumber++;
+            childForm.Text = "Janela " + ChildFormNumber++;
             childForm.Show();
         }
 
@@ -119,6 +127,52 @@ namespace MTGBox
         private void picFormSearch_Click(object sender, EventArgs e)
         {
             ShowFormSearch();
+        }
+
+        private Catalog GetCatalogDataFromAPI(ECatalogTypes type)
+        {
+            try
+            {
+                var catalog = new Catalog();
+                var requisicaoWeb = WebRequest.CreateHttp("https://api.scryfall.com/catalog/" + new EnumReturns().ToString(type));
+                requisicaoWeb.Method = "GET";
+                requisicaoWeb.UserAgent = "RequisicaoWebDemo";
+                using (var resposta = requisicaoWeb.GetResponse())
+                {
+                    var streamDados = resposta.GetResponseStream();
+                    StreamReader reader = new StreamReader(streamDados);
+                    object objResponse = reader.ReadToEnd();
+                    catalog = JsonConvert.DeserializeObject<Catalog>(objResponse.ToString());
+                    streamDados.Close();
+                    resposta.Close();
+                }
+                return catalog;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Wrong request ! " + ex.Message, "Error");
+                return new Catalog();
+            }
+        }
+
+        public void LoadCatalogs()
+        {
+            Catalogs.Add(ECatalogTypes.CardNames, GetCatalogDataFromAPI(ECatalogTypes.CardNames));
+            Catalogs.Add(ECatalogTypes.ArtistNames, GetCatalogDataFromAPI(ECatalogTypes.ArtistNames));
+            Catalogs.Add(ECatalogTypes.WordBank, GetCatalogDataFromAPI(ECatalogTypes.WordBank));
+            Catalogs.Add(ECatalogTypes.CreatureTypes, GetCatalogDataFromAPI(ECatalogTypes.CreatureTypes));
+            Catalogs.Add(ECatalogTypes.PlaneswalkerTypes, GetCatalogDataFromAPI(ECatalogTypes.PlaneswalkerTypes));
+            Catalogs.Add(ECatalogTypes.LandTypes, GetCatalogDataFromAPI(ECatalogTypes.LandTypes));
+            Catalogs.Add(ECatalogTypes.ArtifactTypes, GetCatalogDataFromAPI(ECatalogTypes.ArtifactTypes));
+            Catalogs.Add(ECatalogTypes.EnchantmentYypes, GetCatalogDataFromAPI(ECatalogTypes.EnchantmentYypes));
+            Catalogs.Add(ECatalogTypes.SpellTypes, GetCatalogDataFromAPI(ECatalogTypes.SpellTypes));
+            Catalogs.Add(ECatalogTypes.Powers, GetCatalogDataFromAPI(ECatalogTypes.Powers));
+            Catalogs.Add(ECatalogTypes.Toughnesses, GetCatalogDataFromAPI(ECatalogTypes.Toughnesses));
+            Catalogs.Add(ECatalogTypes.Loyalties, GetCatalogDataFromAPI(ECatalogTypes.Loyalties));
+            Catalogs.Add(ECatalogTypes.Watermarks, GetCatalogDataFromAPI(ECatalogTypes.Watermarks));
+            Catalogs.Add(ECatalogTypes.KeywordAbilities, GetCatalogDataFromAPI(ECatalogTypes.KeywordAbilities));
+            Catalogs.Add(ECatalogTypes.KeywordActions, GetCatalogDataFromAPI(ECatalogTypes.KeywordActions));
+            Catalogs.Add(ECatalogTypes.AbilityWords, GetCatalogDataFromAPI(ECatalogTypes.AbilityWords));
         }
     }
 }

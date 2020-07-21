@@ -1,4 +1,5 @@
-﻿using MTGBox.Model;
+﻿using MTGBox.Enum;
+using MTGBox.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -28,7 +29,7 @@ namespace MTGBox
         {
             InitializeComponent();
             AddColumns();
-            GetRandomCards();
+            Load();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -147,6 +148,110 @@ namespace MTGBox
                 count ++;
             }
             PopulateCards(cards);
+        }
+
+        private void Load()
+        {
+            LoadComboboxWithCatalog(cboCardNames, ECatalogTypes.CardNames);
+            LoadComboboxWithCatalog(cboArtistNames, ECatalogTypes.ArtistNames);
+            LoadComboboxWithCatalog(cboWordBank, ECatalogTypes.WordBank);
+            LoadComboboxWithCatalog(cboCreatureTypes, ECatalogTypes.CreatureTypes);
+            LoadComboboxWithCatalog(cboPlaneswalkerTypes, ECatalogTypes.PlaneswalkerTypes);
+            LoadComboboxWithCatalog(cboLandTypes, ECatalogTypes.LandTypes);
+            LoadComboboxWithCatalog(cboArtifactTypes, ECatalogTypes.ArtifactTypes);
+            LoadComboboxWithCatalog(cboEnchantmentYypes, ECatalogTypes.EnchantmentYypes);
+            LoadComboboxWithCatalog(cboSpellTypes, ECatalogTypes.SpellTypes);
+            LoadComboboxWithCatalog(cboPowers, ECatalogTypes.Powers);
+            LoadComboboxWithCatalog(cboToughnesses, ECatalogTypes.Toughnesses);
+            LoadComboboxWithCatalog(cboLoyalties, ECatalogTypes.Loyalties);
+            LoadComboboxWithCatalog(cboWatermarks, ECatalogTypes.Watermarks);
+            LoadComboboxWithCatalog(cboKeywordAbilities, ECatalogTypes.KeywordAbilities);
+            LoadComboboxWithCatalog(cboKeywordActions, ECatalogTypes.KeywordActions);
+            LoadComboboxWithCatalog(cboAbilityWords, ECatalogTypes.AbilityWords);
+        }
+
+        private void LoadComboboxWithCatalog(ComboBox cbo, ECatalogTypes catalogType)
+        {
+            KeyValuePair <ECatalogTypes, Catalog> catalog = Main.Catalogs.Where(c => c.Key == catalogType).FirstOrDefault();
+            foreach (String data in catalog.Value.Data)
+            {
+                cbo.Items.Add(data);
+            }
+        }
+
+        private void LoadArtistNames()
+        {
+
+        }
+
+        private void LoadWordBank()
+        {
+
+        }
+
+        private void LoadCreatureTypes()
+        {
+
+        }
+
+        private void LoadPlaneswalkerTypes()
+        {
+
+        }
+
+        private void LoadLandTypes()
+        {
+
+        }
+
+        private void LoadArtifactTypes()
+        {
+
+        }
+
+        private void LoadEnchantmentYypes()
+        {
+
+        }
+
+        private void LoadSpellTypes()
+        {
+
+        }
+
+        private void LoadPowers()
+        {
+
+        }
+
+        private void LoadToughnesses()
+        {
+
+        }
+
+        private void LoadLoyalties()
+        {
+
+        }
+
+        private void LoadWatermarks()
+        {
+
+        }
+
+        private void LoadKeywordAbilities()
+        {
+
+        }
+
+        private void LoadKeywordActions()
+        {
+
+        }
+
+        private void LoadAbilityWords()
+        {
+
         }
     }
 }
