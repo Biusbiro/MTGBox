@@ -3,7 +3,7 @@ using System;
 
 namespace MTGBox.Model
 {
-    class ImageUris
+    public class ImageUris
     {
         [JsonProperty("small")]
         public String Small { get; set; }

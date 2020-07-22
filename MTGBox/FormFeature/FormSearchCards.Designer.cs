@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.MainContainerSearch = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSearchByExactName = new System.Windows.Forms.Button();
             this.cboAbilityWords = new System.Windows.Forms.ComboBox();
             this.pnlAbilityWords = new System.Windows.Forms.Panel();
             this.lblAbilityWords = new System.Windows.Forms.Label();
@@ -94,7 +95,9 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.ContainerGridAndData = new System.Windows.Forms.SplitContainer();
             this.grd = new System.Windows.Forms.DataGridView();
+            this.containerCardValues = new System.Windows.Forms.SplitContainer();
             this.pic1 = new System.Windows.Forms.PictureBox();
+            this.grdCardData = new System.Windows.Forms.DataGridView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MainContainerSearch)).BeginInit();
             this.MainContainerSearch.Panel1.SuspendLayout();
@@ -127,7 +130,12 @@
             this.ContainerGridAndData.Panel2.SuspendLayout();
             this.ContainerGridAndData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.containerCardValues)).BeginInit();
+            this.containerCardValues.Panel1.SuspendLayout();
+            this.containerCardValues.Panel2.SuspendLayout();
+            this.containerCardValues.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCardData)).BeginInit();
             this.SuspendLayout();
             // 
             // MainContainerSearch
@@ -151,6 +159,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.panel1.Controls.Add(this.btnSearchByExactName);
             this.panel1.Controls.Add(this.cboAbilityWords);
             this.panel1.Controls.Add(this.pnlAbilityWords);
             this.panel1.Controls.Add(this.cboKeywordActions);
@@ -201,6 +210,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(360, 563);
             this.panel1.TabIndex = 0;
+            // 
+            // btnSearchByExactName
+            // 
+            this.btnSearchByExactName.BackColor = System.Drawing.SystemColors.GrayText;
+            this.btnSearchByExactName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchByExactName.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnSearchByExactName.Location = new System.Drawing.Point(301, 97);
+            this.btnSearchByExactName.Name = "btnSearchByExactName";
+            this.btnSearchByExactName.Size = new System.Drawing.Size(51, 21);
+            this.btnSearchByExactName.TabIndex = 61;
+            this.btnSearchByExactName.Text = "BUSCAR";
+            this.btnSearchByExactName.UseVisualStyleBackColor = false;
+            this.btnSearchByExactName.Click += new System.EventHandler(this.btnSearchByExactName_Click);
             // 
             // cboAbilityWords
             // 
@@ -622,9 +644,9 @@
             this.lblCardNames.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.lblCardNames.Location = new System.Drawing.Point(1, 3);
             this.lblCardNames.Name = "lblCardNames";
-            this.lblCardNames.Size = new System.Drawing.Size(83, 14);
+            this.lblCardNames.Size = new System.Drawing.Size(114, 14);
             this.lblCardNames.TabIndex = 2;
-            this.lblCardNames.Text = "Nome da Carta";
+            this.lblCardNames.Text = "Nome exato da Carta";
             // 
             // cboLandTypes
             // 
@@ -648,9 +670,9 @@
             this.btnSearch.BackColor = System.Drawing.SystemColors.GrayText;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnSearch.Location = new System.Drawing.Point(62, 528);
+            this.btnSearch.Location = new System.Drawing.Point(62, 527);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(233, 30);
+            this.btnSearch.Size = new System.Drawing.Size(233, 35);
             this.btnSearch.TabIndex = 15;
             this.btnSearch.Text = "BUSCAR";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -767,7 +789,7 @@
             this.cboCardNames.FormattingEnabled = true;
             this.cboCardNames.Location = new System.Drawing.Point(167, 97);
             this.cboCardNames.Name = "cboCardNames";
-            this.cboCardNames.Size = new System.Drawing.Size(185, 21);
+            this.cboCardNames.Size = new System.Drawing.Size(128, 21);
             this.cboCardNames.TabIndex = 3;
             // 
             // lblSearch
@@ -802,7 +824,7 @@
             // 
             // ContainerGridAndData.Panel2
             // 
-            this.ContainerGridAndData.Panel2.Controls.Add(this.pic1);
+            this.ContainerGridAndData.Panel2.Controls.Add(this.containerCardValues);
             this.ContainerGridAndData.Size = new System.Drawing.Size(868, 563);
             this.ContainerGridAndData.SplitterDistance = 652;
             this.ContainerGridAndData.TabIndex = 0;
@@ -815,16 +837,51 @@
             this.grd.Name = "grd";
             this.grd.Size = new System.Drawing.Size(652, 563);
             this.grd.TabIndex = 0;
+            this.grd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_CellClick);
+            // 
+            // containerCardValues
+            // 
+            this.containerCardValues.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.containerCardValues.Location = new System.Drawing.Point(0, 0);
+            this.containerCardValues.Name = "containerCardValues";
+            this.containerCardValues.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // containerCardValues.Panel1
+            // 
+            this.containerCardValues.Panel1.Controls.Add(this.pic1);
+            // 
+            // containerCardValues.Panel2
+            // 
+            this.containerCardValues.Panel2.Controls.Add(this.grdCardData);
+            this.containerCardValues.Size = new System.Drawing.Size(212, 563);
+            this.containerCardValues.SplitterDistance = 277;
+            this.containerCardValues.TabIndex = 0;
             // 
             // pic1
             // 
-            this.pic1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pic1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pic1.Location = new System.Drawing.Point(13, 12);
             this.pic1.Name = "pic1";
             this.pic1.Size = new System.Drawing.Size(187, 253);
-            this.pic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic1.TabIndex = 0;
             this.pic1.TabStop = false;
+            // 
+            // grdCardData
+            // 
+            this.grdCardData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdCardData.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.grdCardData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grdCardData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdCardData.Location = new System.Drawing.Point(13, 10);
+            this.grdCardData.Name = "grdCardData";
+            this.grdCardData.Size = new System.Drawing.Size(187, 260);
+            this.grdCardData.TabIndex = 0;
             // 
             // imageList1
             // 
@@ -889,7 +946,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.ContainerGridAndData)).EndInit();
             this.ContainerGridAndData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grd)).EndInit();
+            this.containerCardValues.Panel1.ResumeLayout(false);
+            this.containerCardValues.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.containerCardValues)).EndInit();
+            this.containerCardValues.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCardData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -963,5 +1025,8 @@
         private System.Windows.Forms.ComboBox cboLoyalties;
         private System.Windows.Forms.Panel pnlLoyalties;
         private System.Windows.Forms.Label lblLoyalties;
+        private System.Windows.Forms.Button btnSearchByExactName;
+        private System.Windows.Forms.SplitContainer containerCardValues;
+        private System.Windows.Forms.DataGridView grdCardData;
     }
 }

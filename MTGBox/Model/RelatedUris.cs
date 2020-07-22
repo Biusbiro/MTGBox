@@ -3,7 +3,7 @@ using System;
 
 namespace MTGBox.Model
 {
-    class RelatedUris
+    public class RelatedUris
     {
         [JsonProperty("gatherer")]
         public String Gatherer { get; set; }

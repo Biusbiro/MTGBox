@@ -3,7 +3,7 @@ using System;
 
 namespace MTGBox.Model
 {
-    class Legalities
+    public class Legalities
     {
         [JsonProperty("standard")]
         public String Standard { get; set; }

@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\ECatalogTypes.cs" />
-    <Compile Include="FormFeature\EnumReturns.cs" />
+    <Compile Include="Model\EnumReturns.cs" />
     <Compile Include="FormFeature\FormSearchCards.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +68,7 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Card.cs" />
+    <Compile Include="Model\CardPack.cs" />
     <Compile Include="Model\Catalog.cs" />
     <Compile Include="Model\ImageUris.cs" />
     <Compile Include="Model\Legalities.cs" />
@@ -76,6 +77,8 @@
     <Compile Include="Model\RelatedUris.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requisitions\ApiService.cs" />
+    <Compile Include="Requisitions\GetJson.cs" />
     <EmbeddedResource Include="FormFeature\FormSearchCards.resx">
       <DependentUpon>FormSearchCards.cs</DependentUpon>
     </EmbeddedResource>

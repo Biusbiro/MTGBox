@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace MTGBox.Model
 {
-    class Card
+    public class Card
     {
         [JsonProperty("object")]
         public String Object { get; set; }

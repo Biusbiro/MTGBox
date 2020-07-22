@@ -1,5 +1,6 @@
 ﻿using MTGBox.Enum;
 using MTGBox.Model;
+using MTGBox.Requisitions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -24,25 +25,35 @@ namespace MTGBox
 {
     public partial class FormCardList : Form
     {
-
+        #region constructors
         public FormCardList()
         {
             InitializeComponent();
             AddColumns();
+            AddColumnsCardData();
             Load();
         }
+        #endregion
 
+        #region events
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            LoadCardByName();
+            GetNamedCards("https://api.scryfall.com/cards/search?order=name&q=" + txtSearch.Text);
         }
 
-        private void LoadCardByName()
+        private void btnSearchByExactName_Click(object sender, EventArgs e)
+        {
+            if (cboCardNames.Text != String.Empty)
+                GetCardByName(cboCardNames.Text);
+        }
+        #endregion
+
+        #region private methods
+        private void GetCardByName(String name)
         {
             var card = new Card();
             try
             {
-                var name = txtSearch.Text;
                 var requisicaoWeb = WebRequest.CreateHttp("https://api.scryfall.com/cards/named?fuzzy=" + name);
                 requisicaoWeb.Method = "GET";
                 requisicaoWeb.UserAgent = "RequisicaoWebDemo";
@@ -62,6 +73,7 @@ namespace MTGBox
             }
 
             pic1.LoadAsync(@"" + card.ImageUris.Normal);
+            SetCardValues(card);
         }
 
         private void AddColumns()
@@ -97,8 +109,20 @@ namespace MTGBox
                 }
                 var cell = new DataGridViewImageCell();
                 cell.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                cell.Tag = card;
                 PictureBox pic = new PictureBox();
-                HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(card.ImageUris.Normal);
+                HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(
+                    card.ImageUris != null 
+                        ? card.ImageUris.Small != null 
+                            ? card.ImageUris.Small
+                            : card.ImageUris.Normal != null 
+                                ? card.ImageUris.Normal
+                                : card.ImageUris.Large != null
+                                    ? card.ImageUris.Large
+                                    : card.ImageUris.Png != null
+                                        ? card.ImageUris.Png
+                                        : "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/thumb/f/f8/Magic_card_back.jpg/250px-Magic_card_back.jpg?version=56c40a91c76ffdbe89867f0bc5172888"
+                        : "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/thumb/f/f8/Magic_card_back.jpg/250px-Magic_card_back.jpg?version=56c40a91c76ffdbe89867f0bc5172888");
                 using (HttpWebResponse httpWebReponse = (HttpWebResponse)httpWebRequest.GetResponse())
                 {
                     using (Stream stream = httpWebReponse.GetResponseStream())
@@ -116,38 +140,18 @@ namespace MTGBox
             }
         }
 
-        private void GetRandomCards()
+        private void GetNamedCards(String text)
         {
-            List<Card> cards = new List<Card>();
-
-            var count = 0;
-            while(count < 10)
+            var cardPack = new CardPack();
+            try
             {
-                var card = new Card();
-                try
-                {
-                    var name = txtSearch.Text;
-                    var requisicaoWeb = WebRequest.CreateHttp("https://api.scryfall.com/cards/random");
-                    requisicaoWeb.Method = "GET";
-                    requisicaoWeb.UserAgent = "RequisicaoWebDemo";
-                    using (var resposta = requisicaoWeb.GetResponse())
-                    {
-                        var streamDados = resposta.GetResponseStream();
-                        StreamReader reader = new StreamReader(streamDados);
-                        object objResponse = reader.ReadToEnd();
-                        card = JsonConvert.DeserializeObject<Card>(objResponse.ToString());
-                        streamDados.Close();
-                        resposta.Close();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Wrong request ! " + ex.Message, "Error");
-                }
-                cards.Add(card);
-                count ++;
+                cardPack = (CardPack)new GetJson().GetCardPackObject(text);
             }
-            PopulateCards(cards);
+            catch (Exception ex)
+            {
+                MessageBox.Show("Wrong request ! " + ex.Message, "Error");
+            }
+            PopulateCards(cardPack.Cards);
         }
 
         private void Load()
@@ -179,79 +183,58 @@ namespace MTGBox
             }
         }
 
-        private void LoadArtistNames()
+        private void AddColumnsCardData()
         {
+            grdCardData.Columns.Add("Key", "");
+            grdCardData.Columns.Add("Value", "");
 
+            grdCardData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            grdCardData.ColumnHeadersVisible = false;
+            grdCardData.RowHeadersVisible = false;
+            grdCardData.AllowUserToAddRows = false;
+            grdCardData.AllowUserToResizeColumns = false; ;
+            grdCardData.AllowUserToResizeRows = false;
+            grdCardData.BorderStyle = BorderStyle.None;
+            grdCardData.Margin = new Padding(30);
         }
 
-        private void LoadWordBank()
+        private void SetCardValues(Card card)
         {
-
+            grdCardData.Rows.Add("Name", card.Name);
+            grdCardData.Rows.Add("Set", card.Set);
+            grdCardData.Rows.Add("SetName", card.SetName);
+            grdCardData.Rows.Add("Artist", card.Artist);
+            grdCardData.Rows.Add("Booster", card.Booster);
+            grdCardData.Rows.Add("Cmc", card.Cmc);
+            grdCardData.Rows.Add("CollectorNumber", card.CollectorNumber);
+            grdCardData.Rows.Add("EdhrecRank", card.EdhrecRank);
+            grdCardData.Rows.Add("EdhrecRank", card.FlavorText);
+            grdCardData.Rows.Add("Foil", card.Foil);
+            grdCardData.Rows.Add("Frame", card.Frame);
+            grdCardData.Rows.Add("Games", card.Games);
+            grdCardData.Rows.Add("Keywords", card.Keywords);
+            grdCardData.Rows.Add("Layout", card.Layout);
+            grdCardData.Rows.Add("Legalities", card.Legalities);
+            grdCardData.Rows.Add("ManaCost", card.ManaCost);
+            grdCardData.Rows.Add("Prices", card.Prices.Usd);
+            grdCardData.Rows.Add("Rarity", card.Rarity);
+            grdCardData.Rows.Add("Reprint", card.Reprint);
+            grdCardData.Rows.Add("Reserved", card.Reserved);
+            grdCardData.Rows.Add("SetName", card.SetName);
+            grdCardData.Rows.Add("SetType", card.SetType);
+            grdCardData.Rows.Add("StorySpotlight", card.StorySpotlight);
+            grdCardData.Rows.Add("TypeLine", card.TypeLine);
+            grdCardData.Rows.Add("Variation", card.Variation);
         }
+        #endregion
 
-        private void LoadCreatureTypes()
+        private void grd_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void LoadPlaneswalkerTypes()
-        {
-
-        }
-
-        private void LoadLandTypes()
-        {
-
-        }
-
-        private void LoadArtifactTypes()
-        {
-
-        }
-
-        private void LoadEnchantmentYypes()
-        {
-
-        }
-
-        private void LoadSpellTypes()
-        {
-
-        }
-
-        private void LoadPowers()
-        {
-
-        }
-
-        private void LoadToughnesses()
-        {
-
-        }
-
-        private void LoadLoyalties()
-        {
-
-        }
-
-        private void LoadWatermarks()
-        {
-
-        }
-
-        private void LoadKeywordAbilities()
-        {
-
-        }
-
-        private void LoadKeywordActions()
-        {
-
-        }
-
-        private void LoadAbilityWords()
-        {
-
+            grdCardData.Rows.Clear();
+            grdCardData.Refresh();
+            var card = (grd.SelectedCells[0].Tag as Card);
+            pic1.LoadAsync(@"" + card.ImageUris.Normal);
+            SetCardValues(card);
         }
     }
 }
