@@ -38,6 +38,11 @@ namespace MTGBox
         #region events
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            GetCardsWithParameters("https://api.scryfall.com/cards/search?");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             GetNamedCards("https://api.scryfall.com/cards/search?order=name&q=" + txtSearch.Text);
         }
 
@@ -172,6 +177,15 @@ namespace MTGBox
             LoadComboboxWithCatalog(cboKeywordAbilities, ECatalogTypes.KeywordAbilities);
             LoadComboboxWithCatalog(cboKeywordActions, ECatalogTypes.KeywordActions);
             LoadComboboxWithCatalog(cboAbilityWords, ECatalogTypes.AbilityWords);
+            LoadOrders();
+        }
+
+        private void LoadOrders()
+        {
+            foreach (var element in EOrderType.GetValues(typeof(EOrderType)))
+            {
+                cboOrder.Items.Add(element);
+            }
         }
 
         private void LoadComboboxWithCatalog(ComboBox cbo, ECatalogTypes catalogType)
@@ -235,6 +249,28 @@ namespace MTGBox
             var card = (grd.SelectedCells[0].Tag as Card);
             pic1.LoadAsync(@"" + card.ImageUris.Normal);
             SetCardValues(card);
+        }
+
+        private void GetCardsWithParameters(String search)
+        {
+            var requisition = "https://api.scryfall.com/cards/search?";
+            var order = "order=" + cboOrder.SelectedItem  + "&";
+            var queryInitialise = "q=";
+            var name = (txtSearch.Text.Equals(String.Empty) ? String.Empty : txtSearch.Text + "+");
+            var type = cboCreatureTypes.SelectedItem.Equals(String.Empty) ? String.Empty : "type%3a" + cboCreatureTypes.SelectedItem;
+
+            var fullUrl = requisition + order + queryInitialise + name + type;
+
+            var cardPack = new CardPack();
+            try
+            {
+                cardPack = (CardPack)new GetJson().GetCardPackObject(fullUrl);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Wrong request ! " + ex.Message, "Error");
+            }
+            PopulateCards(cardPack.Cards);
         }
     }
 }

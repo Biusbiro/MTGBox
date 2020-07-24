@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\ECatalogTypes.cs" />
+    <Compile Include="Enum\EOrderType.cs" />
     <Compile Include="Model\EnumReturns.cs" />
     <Compile Include="FormFeature\FormSearchCards.cs">
       <SubType>Form</SubType>

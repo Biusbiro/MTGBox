@@ -99,6 +99,9 @@
             this.pic1 = new System.Windows.Forms.PictureBox();
             this.grdCardData = new System.Windows.Forms.DataGridView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cboOrder = new System.Windows.Forms.ComboBox();
+            this.lblOrder = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.MainContainerSearch)).BeginInit();
             this.MainContainerSearch.Panel1.SuspendLayout();
             this.MainContainerSearch.Panel2.SuspendLayout();
@@ -136,6 +139,7 @@
             this.containerCardValues.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCardData)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainContainerSearch
@@ -159,6 +163,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.panel1.Controls.Add(this.cboOrder);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnSearchByExactName);
             this.panel1.Controls.Add(this.cboAbilityWords);
             this.panel1.Controls.Add(this.pnlAbilityWords);
@@ -670,9 +676,9 @@
             this.btnSearch.BackColor = System.Drawing.SystemColors.GrayText;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnSearch.Location = new System.Drawing.Point(62, 527);
+            this.btnSearch.Location = new System.Drawing.Point(89, 525);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(233, 35);
+            this.btnSearch.Size = new System.Drawing.Size(157, 35);
             this.btnSearch.TabIndex = 15;
             this.btnSearch.Text = "BUSCAR";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -683,7 +689,7 @@
             this.checkBox5.AutoSize = true;
             this.checkBox5.Checked = true;
             this.checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox5.Location = new System.Drawing.Point(241, 79);
+            this.checkBox5.Location = new System.Drawing.Point(241, 56);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(15, 14);
             this.checkBox5.TabIndex = 14;
@@ -694,7 +700,7 @@
             this.checkBox4.AutoSize = true;
             this.checkBox4.Checked = true;
             this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox4.Location = new System.Drawing.Point(204, 79);
+            this.checkBox4.Location = new System.Drawing.Point(204, 56);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(15, 14);
             this.checkBox4.TabIndex = 13;
@@ -705,7 +711,7 @@
             this.checkBox3.AutoSize = true;
             this.checkBox3.Checked = true;
             this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(168, 79);
+            this.checkBox3.Location = new System.Drawing.Point(168, 56);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(15, 14);
             this.checkBox3.TabIndex = 12;
@@ -716,7 +722,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(133, 79);
+            this.checkBox2.Location = new System.Drawing.Point(133, 56);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(15, 14);
             this.checkBox2.TabIndex = 11;
@@ -727,7 +733,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(98, 79);
+            this.checkBox1.Location = new System.Drawing.Point(98, 56);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 10;
@@ -736,7 +742,7 @@
             // picManaW
             // 
             this.picManaW.Image = global::MTGBox.Properties.Resources.MTG_White;
-            this.picManaW.Location = new System.Drawing.Point(232, 48);
+            this.picManaW.Location = new System.Drawing.Point(232, 25);
             this.picManaW.Name = "picManaW";
             this.picManaW.Size = new System.Drawing.Size(30, 30);
             this.picManaW.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -746,7 +752,7 @@
             // picManaR
             // 
             this.picManaR.Image = global::MTGBox.Properties.Resources.MTG_Red;
-            this.picManaR.Location = new System.Drawing.Point(196, 48);
+            this.picManaR.Location = new System.Drawing.Point(196, 25);
             this.picManaR.Name = "picManaR";
             this.picManaR.Size = new System.Drawing.Size(30, 30);
             this.picManaR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -756,7 +762,7 @@
             // picManaK
             // 
             this.picManaK.Image = global::MTGBox.Properties.Resources.MTG_Black;
-            this.picManaK.Location = new System.Drawing.Point(160, 48);
+            this.picManaK.Location = new System.Drawing.Point(160, 25);
             this.picManaK.Name = "picManaK";
             this.picManaK.Size = new System.Drawing.Size(30, 30);
             this.picManaK.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -766,7 +772,7 @@
             // picManaB
             // 
             this.picManaB.Image = global::MTGBox.Properties.Resources.MTG_Blue;
-            this.picManaB.Location = new System.Drawing.Point(124, 48);
+            this.picManaB.Location = new System.Drawing.Point(124, 25);
             this.picManaB.Name = "picManaB";
             this.picManaB.Size = new System.Drawing.Size(30, 30);
             this.picManaB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -777,7 +783,7 @@
             // 
             this.picManaG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picManaG.Image = global::MTGBox.Properties.Resources.MTG_Green;
-            this.picManaG.Location = new System.Drawing.Point(89, 48);
+            this.picManaG.Location = new System.Drawing.Point(89, 25);
             this.picManaG.Name = "picManaG";
             this.picManaG.Size = new System.Drawing.Size(30, 30);
             this.picManaG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -797,7 +803,7 @@
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblSearch.Location = new System.Drawing.Point(9, 3);
+            this.lblSearch.Location = new System.Drawing.Point(11, 6);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(100, 15);
             this.lblSearch.TabIndex = 1;
@@ -805,9 +811,9 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(12, 18);
+            this.txtSearch.Location = new System.Drawing.Point(118, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(340, 20);
+            this.txtSearch.Size = new System.Drawing.Size(234, 20);
             this.txtSearch.TabIndex = 0;
             // 
             // ContainerGridAndData
@@ -889,6 +895,34 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // cboOrder
+            // 
+            this.cboOrder.FormattingEnabled = true;
+            this.cboOrder.Location = new System.Drawing.Point(167, 70);
+            this.cboOrder.Name = "cboOrder";
+            this.cboOrder.Size = new System.Drawing.Size(185, 21);
+            this.cboOrder.TabIndex = 31;
+            // 
+            // lblOrder
+            // 
+            this.lblOrder.AutoSize = true;
+            this.lblOrder.Font = new System.Drawing.Font("Franklin Gothic Book", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrder.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblOrder.Location = new System.Drawing.Point(1, 3);
+            this.lblOrder.Name = "lblOrder";
+            this.lblOrder.Size = new System.Drawing.Size(70, 14);
+            this.lblOrder.TabIndex = 2;
+            this.lblOrder.Text = "Ordenar por:";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel2.Controls.Add(this.lblOrder);
+            this.panel2.Location = new System.Drawing.Point(8, 70);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(158, 21);
+            this.panel2.TabIndex = 32;
+            // 
             // FormCardList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -952,6 +986,8 @@
             this.containerCardValues.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCardData)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1028,5 +1064,8 @@
         private System.Windows.Forms.Button btnSearchByExactName;
         private System.Windows.Forms.SplitContainer containerCardValues;
         private System.Windows.Forms.DataGridView grdCardData;
+        private System.Windows.Forms.ComboBox cboOrder;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblOrder;
     }
 }
