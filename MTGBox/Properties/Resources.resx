@@ -136,6 +136,9 @@
   <data name="MTG Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MTG Red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Grimory-50x50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Grimory-50x50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Search-50x50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Search-50x50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,7 +148,7 @@
   <data name="MTG Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MTG Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Grimory-50x50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Grimory-50x50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MagicLogoDefaultBlock-100x100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MagicLogoDefaultBlock-100x100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -141,5 +141,8 @@
   <ItemGroup>
     <None Include="Resources\Grimory-50x50.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MagicLogoDefaultBlock-100x100.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -103,6 +103,16 @@ namespace MTGBox.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MagicLogoDefaultBlock_100x100 {
+            get {
+                object obj = ResourceManager.GetObject("MagicLogoDefaultBlock-100x100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MTG_Black {
             get {
                 object obj = ResourceManager.GetObject("MTG Black", resourceCulture);

@@ -1,5 +1,6 @@
 ﻿using MTGBox.Enum;
 using MTGBox.Model;
+using MTGBox.Properties;
 using MTGBox.Requisitions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -50,6 +51,36 @@ namespace MTGBox
         {
             if (cboCardNames.Text != String.Empty)
                 GetCardByName(cboCardNames.Text);
+        }
+
+        private void radCreature_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshComboboxTypes();
+        }
+
+        private void radPlaneswalker_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshComboboxTypes();
+        }
+
+        private void radLand_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshComboboxTypes();
+        }
+
+        private void radArtifact_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshComboboxTypes();
+        }
+
+        private void radEnchantment_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshComboboxTypes();
+        }
+
+        private void radSpell_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshComboboxTypes();
         }
         #endregion
 
@@ -102,7 +133,11 @@ namespace MTGBox
 
         private void PopulateCards(List<Card> cards)
         {
+            if (cards == null)
+                return;
+
             grd.Rows.Clear();
+            grd.Refresh();
             int columnNumber = 1;
             var row = new DataGridViewRow();
             foreach(Card card in cards)
@@ -110,39 +145,48 @@ namespace MTGBox
                 if (columnNumber == 1)
                 {
                     row = new DataGridViewRow();
-                    row.MinimumHeight = 200;
                 }
                 var cell = new DataGridViewImageCell();
-                cell.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                cell.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 cell.Tag = card;
-                PictureBox pic = new PictureBox();
-                HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(
-                    card.ImageUris != null 
-                        ? card.ImageUris.Small != null 
-                            ? card.ImageUris.Small
-                            : card.ImageUris.Normal != null 
-                                ? card.ImageUris.Normal
-                                : card.ImageUris.Large != null
-                                    ? card.ImageUris.Large
-                                    : card.ImageUris.Png != null
-                                        ? card.ImageUris.Png
-                                        : "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/thumb/f/f8/Magic_card_back.jpg/250px-Magic_card_back.jpg?version=56c40a91c76ffdbe89867f0bc5172888"
-                        : "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/thumb/f/f8/Magic_card_back.jpg/250px-Magic_card_back.jpg?version=56c40a91c76ffdbe89867f0bc5172888");
-                using (HttpWebResponse httpWebReponse = (HttpWebResponse)httpWebRequest.GetResponse())
-                {
-                    using (Stream stream = httpWebReponse.GetResponseStream())
-                    {
-                        cell.Value = Image.FromStream(stream);
-                    }
-                }
+                cell.Value = LoadCardPic(card, cell);
                 row.Cells.Add(cell);
-                if (columnNumber == grd.Columns.Count)
+                if (columnNumber == grd.Columns.Count || card == cards.Last())
                 {
                     grd.Rows.Add(row);
                     columnNumber = 0;
                 }
                 columnNumber++;
             }
+        }
+
+        private Bitmap LoadCardPic(Card card, DataGridViewImageCell cell)
+        {
+            PictureBox pic = new PictureBox();
+            pic.ErrorImage = Resources.MagicLogoDefaultBlock_100x100;
+            pic.InitialImage = Resources.MagicLogoDefaultBlock_100x100;
+            pic.BackgroundImageLayout = ImageLayout.Center;
+            pic.LoadAsync(
+                    card.ImageUris != null
+                        ? card.ImageUris.Small != null
+                            ? card.ImageUris.Small.ToString()
+                            : card.ImageUris.Normal != null
+                                ? card.ImageUris.Normal.ToString()
+                                : card.ImageUris.Large != null
+                                    ? card.ImageUris.Large.ToString()
+                                    : card.ImageUris.Png != null
+                                        ? card.ImageUris.Png.ToString()
+                                        : "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/thumb/f/f8/Magic_card_back.jpg/250px-Magic_card_back.jpg?version=56c40a91c76ffdbe89867f0bc5172888"
+                        : "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/thumb/f/f8/Magic_card_back.jpg/250px-Magic_card_back.jpg?version=56c40a91c76ffdbe89867f0bc5172888"); ;
+            pic.Tag = cell;
+            pic.LoadCompleted += Pic_LoadCompleted;
+            return pic.Image as Bitmap;
+        }
+
+        private void Pic_LoadCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            var cell = ((sender as PictureBox).Tag as DataGridViewImageCell);
+            cell.Value = (sender as PictureBox).Image;
         }
 
         private void GetNamedCards(String text)
@@ -168,7 +212,7 @@ namespace MTGBox
             LoadComboboxWithCatalog(cboPlaneswalkerTypes, ECatalogTypes.PlaneswalkerTypes);
             LoadComboboxWithCatalog(cboLandTypes, ECatalogTypes.LandTypes);
             LoadComboboxWithCatalog(cboArtifactTypes, ECatalogTypes.ArtifactTypes);
-            LoadComboboxWithCatalog(cboEnchantmentYypes, ECatalogTypes.EnchantmentYypes);
+            LoadComboboxWithCatalog(cboEnchantmentTypes, ECatalogTypes.EnchantmentYypes);
             LoadComboboxWithCatalog(cboSpellTypes, ECatalogTypes.SpellTypes);
             LoadComboboxWithCatalog(cboPowers, ECatalogTypes.Powers);
             LoadComboboxWithCatalog(cboToughnesses, ECatalogTypes.Toughnesses);
@@ -178,6 +222,7 @@ namespace MTGBox
             LoadComboboxWithCatalog(cboKeywordActions, ECatalogTypes.KeywordActions);
             LoadComboboxWithCatalog(cboAbilityWords, ECatalogTypes.AbilityWords);
             LoadOrders();
+            RefreshComboboxTypes();
         }
 
         private void LoadOrders()
@@ -186,6 +231,7 @@ namespace MTGBox
             {
                 cboOrder.Items.Add(element);
             }
+            cboOrder.SelectedIndex = 0;
         }
 
         private void LoadComboboxWithCatalog(ComboBox cbo, ECatalogTypes catalogType)
@@ -225,8 +271,8 @@ namespace MTGBox
             grdCardData.Rows.Add("EdhrecRank", card.FlavorText);
             grdCardData.Rows.Add("Foil", card.Foil);
             grdCardData.Rows.Add("Frame", card.Frame);
-            grdCardData.Rows.Add("Games", card.Games);
-            grdCardData.Rows.Add("Keywords", card.Keywords);
+            grdCardData.Rows.Add("Games", String.Join(", ", card.Games));
+            grdCardData.Rows.Add("Keywords", String.Join(", ", card.Keywords));
             grdCardData.Rows.Add("Layout", card.Layout);
             grdCardData.Rows.Add("Legalities", card.Legalities);
             grdCardData.Rows.Add("ManaCost", card.ManaCost);
@@ -240,6 +286,22 @@ namespace MTGBox
             grdCardData.Rows.Add("TypeLine", card.TypeLine);
             grdCardData.Rows.Add("Variation", card.Variation);
         }
+
+        private void RefreshComboboxTypes()
+        {
+            cboCreatureTypes.Enabled = radCreature.Checked;
+            cboArtifactTypes.Enabled = radArtifact.Checked;
+            cboLandTypes.Enabled = radLand.Checked;
+            cboEnchantmentTypes.Enabled = radEnchantment.Checked;
+            cboPlaneswalkerTypes.Enabled = radPlaneswalker.Checked;
+            cboSpellTypes.Enabled = radSpell.Checked;
+            cboCreatureTypes.SelectedItem = cboCreatureTypes.Enabled ? cboCreatureTypes.SelectedItem : null;
+            cboArtifactTypes.SelectedItem = cboArtifactTypes.Enabled ? cboArtifactTypes.SelectedItem : null;
+            cboLandTypes.SelectedItem = cboLandTypes.Enabled ? cboLandTypes.SelectedItem : null;
+            cboEnchantmentTypes.SelectedItem = cboEnchantmentTypes.Enabled ? cboEnchantmentTypes.SelectedItem : null;
+            cboPlaneswalkerTypes.SelectedItem = cboPlaneswalkerTypes.Enabled ? cboPlaneswalkerTypes.SelectedItem : null;
+            cboSpellTypes.SelectedItem = cboSpellTypes.Enabled ? cboSpellTypes.SelectedItem = cboSpellTypes.Enabled : null;
+        }
         #endregion
 
         private void grd_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -247,19 +309,53 @@ namespace MTGBox
             grdCardData.Rows.Clear();
             grdCardData.Refresh();
             var card = (grd.SelectedCells[0].Tag as Card);
-            pic1.LoadAsync(@"" + card.ImageUris.Normal);
+            if (card == null)
+                return;
+            pic1.LoadAsync(@"" + card.ImageUris != null 
+                ? card.ImageUris.Normal
+                : card.ImageUris.Normal != null 
+                    ? card.ImageUris.Normal
+                    : "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/thumb/f/f8/Magic_card_back.jpg/250px-Magic_card_back.jpg?version=56c40a91c76ffdbe89867f0bc5172888");
+
             SetCardValues(card);
         }
 
         private void GetCardsWithParameters(String search)
         {
+            //  color%3E%3DBR                                       -> Fire color>=BR lang:pt (inclui as cores Branco e Vermelho)
+            //  are %7BW%7D%7BW%7D%7BW%7D                           -> mana:{W}{W}{W} lang:pt (contem 3 manas brancas no custo)
+            //  %28set are atq%29                                   -> (set:atq) (set antiquetis)
+            //  oracle are openBraces X closeBraces + type are land -> oracle:{X} type:land lang:pt
+            //  oracle are openBraces X closeBraces +-type are land -> oracle:{X} -type:land lang:pt
+
+            var openGroup = "%28";     // (
+            var closeGroup = "%29";    // )
+            var are = "%3A";           // :
+            var openBraces = "%7B";    // {
+            var closeBraces = "%7D";   // }
+            var and = "+";             // +
+            var equal = "%3D";         // =
+
+            var query = "q=";
             var requisition = "https://api.scryfall.com/cards/search?";
             var order = "order=" + cboOrder.SelectedItem  + "&";
-            var queryInitialise = "q=";
-            var name = (txtSearch.Text.Equals(String.Empty) ? String.Empty : txtSearch.Text + "+");
-            var type = cboCreatureTypes.SelectedItem.Equals(String.Empty) ? String.Empty : "type%3a" + cboCreatureTypes.SelectedItem;
+            var name = (txtSearch.Text.Equals(String.Empty) ? String.Empty : txtSearch.Text + and); /*adicionar validação para espaços*/
+            var type = GetCardType() + and;
+            var artist = cboArtistNames.SelectedItem == null ? String.Empty : GetArtist(cboArtistNames.SelectedItem.ToString()) + and;
+            var oracle = cboKeywordAbilities.SelectedItem == null ? String.Empty : "oracle" + are + cboKeywordAbilities.SelectedItem + and;
+            var color = GetColor() + and; 
+            var language = "lang" + are + "pt";
 
-            var fullUrl = requisition + order + queryInitialise + name + type;
+            var fullUrl = 
+                requisition + 
+                order + 
+                query + 
+                name + 
+                type +
+                artist +
+                oracle +
+                color +
+                language;
 
             var cardPack = new CardPack();
             try
@@ -271,6 +367,40 @@ namespace MTGBox
                 MessageBox.Show("Wrong request ! " + ex.Message, "Error");
             }
             PopulateCards(cardPack.Cards);
+        }
+
+        private String GetArtist(String artist)
+        {
+            if (artist == null)
+                return String.Empty;
+
+            if (artist.Contains(" "))
+                return "%28artist%3A" + artist.Replace(" ", "+artist%3A") + "%29";
+
+            return artist;
+        }
+
+        private String GetColor()
+        {
+            var colors = String.Empty;
+            colors += chkColorB.Checked ? "B": String.Empty;
+            colors += chkColorU.Checked ? "U": String.Empty;
+            colors += chkColorW.Checked ? "W": String.Empty;
+            colors += chkColorR.Checked ? "R": String.Empty;
+            colors += chkColorG.Checked ? "G": String.Empty;
+            return colors.Equals(String.Empty) ? String.Empty : "color%3D" + colors;
+        }
+
+        private String GetCardType()
+        {
+            String type = String.Empty;
+            type += cboCreatureTypes.Enabled ? cboCreatureTypes.SelectedItem : String.Empty;
+            type += cboArtifactTypes.Enabled ? cboArtifactTypes.SelectedItem : String.Empty;
+            type += cboPlaneswalkerTypes.Enabled ? cboPlaneswalkerTypes.SelectedItem : String.Empty;
+            type += cboSpellTypes.Enabled ? cboSpellTypes.SelectedItem : String.Empty;
+            type += cboEnchantmentTypes.Enabled ? cboEnchantmentTypes.SelectedItem : String.Empty;
+            type += cboLandTypes.Enabled ? cboLandTypes.SelectedItem : String.Empty;
+            return type.Equals(String.Empty) ? String.Empty : "type%3A" + type;
         }
     }
 }
