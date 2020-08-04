@@ -31,6 +31,31 @@
             this.components = new System.ComponentModel.Container();
             this.MainContainerSearch = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.grpTypes = new System.Windows.Forms.GroupBox();
+            this.radCreature = new System.Windows.Forms.RadioButton();
+            this.radSpell = new System.Windows.Forms.RadioButton();
+            this.cboLandTypes = new System.Windows.Forms.ComboBox();
+            this.radEnchantment = new System.Windows.Forms.RadioButton();
+            this.pnlLandTypes = new System.Windows.Forms.Panel();
+            this.lblLandTypes = new System.Windows.Forms.Label();
+            this.radArtifact = new System.Windows.Forms.RadioButton();
+            this.cboPlaneswalkerTypes = new System.Windows.Forms.ComboBox();
+            this.radLand = new System.Windows.Forms.RadioButton();
+            this.pnlPlaneswalkerTypes = new System.Windows.Forms.Panel();
+            this.lblPlaneswalkerTypes = new System.Windows.Forms.Label();
+            this.radPlaneswalker = new System.Windows.Forms.RadioButton();
+            this.cboCreatureTypes = new System.Windows.Forms.ComboBox();
+            this.pnlCreatureTypes = new System.Windows.Forms.Panel();
+            this.lblCreatureTypes = new System.Windows.Forms.Label();
+            this.cboSpellTypes = new System.Windows.Forms.ComboBox();
+            this.pnlSpellTypes = new System.Windows.Forms.Panel();
+            this.lblSpellTypes = new System.Windows.Forms.Label();
+            this.cboEnchantmentTypes = new System.Windows.Forms.ComboBox();
+            this.pnlEnchantmentYypes = new System.Windows.Forms.Panel();
+            this.lblEnchantmentYypes = new System.Windows.Forms.Label();
+            this.cboArtifactTypes = new System.Windows.Forms.ComboBox();
+            this.pnlArtifactTypes = new System.Windows.Forms.Panel();
+            this.lblArtifactTypes = new System.Windows.Forms.Label();
             this.cboOrder = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblOrder = new System.Windows.Forms.Label();
@@ -55,31 +80,13 @@
             this.pnlToughnesses = new System.Windows.Forms.Panel();
             this.lblToughnesses = new System.Windows.Forms.Label();
             this.cboToughnesses = new System.Windows.Forms.ComboBox();
-            this.pnlArtifactTypes = new System.Windows.Forms.Panel();
-            this.lblArtifactTypes = new System.Windows.Forms.Label();
-            this.cboArtifactTypes = new System.Windows.Forms.ComboBox();
-            this.pnlEnchantmentYypes = new System.Windows.Forms.Panel();
-            this.lblEnchantmentYypes = new System.Windows.Forms.Label();
-            this.cboEnchantmentTypes = new System.Windows.Forms.ComboBox();
-            this.pnlSpellTypes = new System.Windows.Forms.Panel();
-            this.lblSpellTypes = new System.Windows.Forms.Label();
-            this.cboSpellTypes = new System.Windows.Forms.ComboBox();
-            this.pnlCreatureTypes = new System.Windows.Forms.Panel();
-            this.lblCreatureTypes = new System.Windows.Forms.Label();
             this.pnlWordBank = new System.Windows.Forms.Panel();
             this.lblWordBank = new System.Windows.Forms.Label();
-            this.cboCreatureTypes = new System.Windows.Forms.ComboBox();
             this.pnlArtistNames = new System.Windows.Forms.Panel();
             this.lblArtistNames = new System.Windows.Forms.Label();
-            this.pnlPlaneswalkerTypes = new System.Windows.Forms.Panel();
-            this.lblPlaneswalkerTypes = new System.Windows.Forms.Label();
             this.cboWordBank = new System.Windows.Forms.ComboBox();
-            this.cboPlaneswalkerTypes = new System.Windows.Forms.ComboBox();
-            this.pnlLandTypes = new System.Windows.Forms.Panel();
-            this.lblLandTypes = new System.Windows.Forms.Label();
             this.pnlCardNames = new System.Windows.Forms.Panel();
             this.lblCardNames = new System.Windows.Forms.Label();
-            this.cboLandTypes = new System.Windows.Forms.ComboBox();
             this.cboArtistNames = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.chkColorW = new System.Windows.Forms.CheckBox();
@@ -87,32 +94,35 @@
             this.chkColorB = new System.Windows.Forms.CheckBox();
             this.chkColorU = new System.Windows.Forms.CheckBox();
             this.chkColorG = new System.Windows.Forms.CheckBox();
-            this.cboCardNames = new System.Windows.Forms.ComboBox();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.ContainerGridAndData = new System.Windows.Forms.SplitContainer();
-            this.grd = new System.Windows.Forms.DataGridView();
-            this.containerCardValues = new System.Windows.Forms.SplitContainer();
-            this.grdCardData = new System.Windows.Forms.DataGridView();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.radCreature = new System.Windows.Forms.RadioButton();
-            this.radPlaneswalker = new System.Windows.Forms.RadioButton();
-            this.radLand = new System.Windows.Forms.RadioButton();
-            this.radArtifact = new System.Windows.Forms.RadioButton();
-            this.radEnchantment = new System.Windows.Forms.RadioButton();
-            this.radSpell = new System.Windows.Forms.RadioButton();
-            this.grpTypes = new System.Windows.Forms.GroupBox();
             this.picColorW = new System.Windows.Forms.PictureBox();
             this.picColorR = new System.Windows.Forms.PictureBox();
             this.picColorB = new System.Windows.Forms.PictureBox();
             this.picColorU = new System.Windows.Forms.PictureBox();
             this.picColorG = new System.Windows.Forms.PictureBox();
+            this.cboCardNames = new System.Windows.Forms.ComboBox();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.ContainerGridAndData = new System.Windows.Forms.SplitContainer();
+            this.containerCardAndButtons = new System.Windows.Forms.SplitContainer();
+            this.grd = new System.Windows.Forms.DataGridView();
+            this.containerCardValues = new System.Windows.Forms.SplitContainer();
             this.pic1 = new System.Windows.Forms.PictureBox();
+            this.grdCardData = new System.Windows.Forms.DataGridView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MainContainerSearch)).BeginInit();
             this.MainContainerSearch.Panel1.SuspendLayout();
             this.MainContainerSearch.Panel2.SuspendLayout();
             this.MainContainerSearch.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.grpTypes.SuspendLayout();
+            this.pnlLandTypes.SuspendLayout();
+            this.pnlPlaneswalkerTypes.SuspendLayout();
+            this.pnlCreatureTypes.SuspendLayout();
+            this.pnlSpellTypes.SuspendLayout();
+            this.pnlEnchantmentYypes.SuspendLayout();
+            this.pnlArtifactTypes.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlAbilityWords.SuspendLayout();
             this.pnlKeywordActions.SuspendLayout();
@@ -121,32 +131,31 @@
             this.pnlLoyalties.SuspendLayout();
             this.pnlPowers.SuspendLayout();
             this.pnlToughnesses.SuspendLayout();
-            this.pnlArtifactTypes.SuspendLayout();
-            this.pnlEnchantmentYypes.SuspendLayout();
-            this.pnlSpellTypes.SuspendLayout();
-            this.pnlCreatureTypes.SuspendLayout();
             this.pnlWordBank.SuspendLayout();
             this.pnlArtistNames.SuspendLayout();
-            this.pnlPlaneswalkerTypes.SuspendLayout();
-            this.pnlLandTypes.SuspendLayout();
             this.pnlCardNames.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ContainerGridAndData)).BeginInit();
-            this.ContainerGridAndData.Panel1.SuspendLayout();
-            this.ContainerGridAndData.Panel2.SuspendLayout();
-            this.ContainerGridAndData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.containerCardValues)).BeginInit();
-            this.containerCardValues.Panel1.SuspendLayout();
-            this.containerCardValues.Panel2.SuspendLayout();
-            this.containerCardValues.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCardData)).BeginInit();
-            this.grpTypes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picColorW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picColorR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picColorB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picColorU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picColorG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContainerGridAndData)).BeginInit();
+            this.ContainerGridAndData.Panel1.SuspendLayout();
+            this.ContainerGridAndData.Panel2.SuspendLayout();
+            this.ContainerGridAndData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.containerCardAndButtons)).BeginInit();
+            this.containerCardAndButtons.Panel1.SuspendLayout();
+            this.containerCardAndButtons.Panel2.SuspendLayout();
+            this.containerCardAndButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.containerCardValues)).BeginInit();
+            this.containerCardValues.Panel1.SuspendLayout();
+            this.containerCardValues.Panel2.SuspendLayout();
+            this.containerCardValues.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCardData)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // MainContainerSearch
@@ -211,6 +220,263 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(360, 611);
             this.panel1.TabIndex = 0;
+            // 
+            // grpTypes
+            // 
+            this.grpTypes.Controls.Add(this.radCreature);
+            this.grpTypes.Controls.Add(this.radSpell);
+            this.grpTypes.Controls.Add(this.cboLandTypes);
+            this.grpTypes.Controls.Add(this.radEnchantment);
+            this.grpTypes.Controls.Add(this.pnlLandTypes);
+            this.grpTypes.Controls.Add(this.radArtifact);
+            this.grpTypes.Controls.Add(this.cboPlaneswalkerTypes);
+            this.grpTypes.Controls.Add(this.radLand);
+            this.grpTypes.Controls.Add(this.pnlPlaneswalkerTypes);
+            this.grpTypes.Controls.Add(this.radPlaneswalker);
+            this.grpTypes.Controls.Add(this.cboCreatureTypes);
+            this.grpTypes.Controls.Add(this.pnlCreatureTypes);
+            this.grpTypes.Controls.Add(this.cboSpellTypes);
+            this.grpTypes.Controls.Add(this.pnlSpellTypes);
+            this.grpTypes.Controls.Add(this.cboEnchantmentTypes);
+            this.grpTypes.Controls.Add(this.pnlEnchantmentYypes);
+            this.grpTypes.Controls.Add(this.cboArtifactTypes);
+            this.grpTypes.Controls.Add(this.pnlArtifactTypes);
+            this.grpTypes.Location = new System.Drawing.Point(8, 374);
+            this.grpTypes.Name = "grpTypes";
+            this.grpTypes.Size = new System.Drawing.Size(344, 184);
+            this.grpTypes.TabIndex = 67;
+            this.grpTypes.TabStop = false;
+            this.grpTypes.Text = "Filtrar por Tipo";
+            // 
+            // radCreature
+            // 
+            this.radCreature.AutoSize = true;
+            this.radCreature.Checked = true;
+            this.radCreature.Location = new System.Drawing.Point(10, 23);
+            this.radCreature.Name = "radCreature";
+            this.radCreature.Size = new System.Drawing.Size(14, 13);
+            this.radCreature.TabIndex = 61;
+            this.radCreature.TabStop = true;
+            this.radCreature.UseVisualStyleBackColor = true;
+            this.radCreature.CheckedChanged += new System.EventHandler(this.radCreature_CheckedChanged);
+            // 
+            // radSpell
+            // 
+            this.radSpell.AutoSize = true;
+            this.radSpell.Location = new System.Drawing.Point(10, 158);
+            this.radSpell.Name = "radSpell";
+            this.radSpell.Size = new System.Drawing.Size(14, 13);
+            this.radSpell.TabIndex = 66;
+            this.radSpell.UseVisualStyleBackColor = true;
+            this.radSpell.CheckedChanged += new System.EventHandler(this.radSpell_CheckedChanged);
+            // 
+            // cboLandTypes
+            // 
+            this.cboLandTypes.FormattingEnabled = true;
+            this.cboLandTypes.Location = new System.Drawing.Point(168, 74);
+            this.cboLandTypes.Name = "cboLandTypes";
+            this.cboLandTypes.Size = new System.Drawing.Size(161, 21);
+            this.cboLandTypes.TabIndex = 39;
+            // 
+            // radEnchantment
+            // 
+            this.radEnchantment.AutoSize = true;
+            this.radEnchantment.Location = new System.Drawing.Point(9, 132);
+            this.radEnchantment.Name = "radEnchantment";
+            this.radEnchantment.Size = new System.Drawing.Size(14, 13);
+            this.radEnchantment.TabIndex = 65;
+            this.radEnchantment.UseVisualStyleBackColor = true;
+            this.radEnchantment.CheckedChanged += new System.EventHandler(this.radEnchantment_CheckedChanged);
+            // 
+            // pnlLandTypes
+            // 
+            this.pnlLandTypes.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.pnlLandTypes.Controls.Add(this.lblLandTypes);
+            this.pnlLandTypes.Location = new System.Drawing.Point(29, 74);
+            this.pnlLandTypes.Name = "pnlLandTypes";
+            this.pnlLandTypes.Size = new System.Drawing.Size(138, 21);
+            this.pnlLandTypes.TabIndex = 40;
+            // 
+            // lblLandTypes
+            // 
+            this.lblLandTypes.AutoSize = true;
+            this.lblLandTypes.Font = new System.Drawing.Font("Franklin Gothic Book", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLandTypes.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblLandTypes.Location = new System.Drawing.Point(1, 3);
+            this.lblLandTypes.Name = "lblLandTypes";
+            this.lblLandTypes.Size = new System.Drawing.Size(86, 14);
+            this.lblLandTypes.TabIndex = 2;
+            this.lblLandTypes.Text = "Tipo de Terreno";
+            // 
+            // radArtifact
+            // 
+            this.radArtifact.AutoSize = true;
+            this.radArtifact.Location = new System.Drawing.Point(10, 105);
+            this.radArtifact.Name = "radArtifact";
+            this.radArtifact.Size = new System.Drawing.Size(14, 13);
+            this.radArtifact.TabIndex = 64;
+            this.radArtifact.UseVisualStyleBackColor = true;
+            this.radArtifact.CheckedChanged += new System.EventHandler(this.radArtifact_CheckedChanged);
+            // 
+            // cboPlaneswalkerTypes
+            // 
+            this.cboPlaneswalkerTypes.FormattingEnabled = true;
+            this.cboPlaneswalkerTypes.Location = new System.Drawing.Point(168, 47);
+            this.cboPlaneswalkerTypes.Name = "cboPlaneswalkerTypes";
+            this.cboPlaneswalkerTypes.Size = new System.Drawing.Size(161, 21);
+            this.cboPlaneswalkerTypes.TabIndex = 37;
+            // 
+            // radLand
+            // 
+            this.radLand.AutoSize = true;
+            this.radLand.Location = new System.Drawing.Point(10, 77);
+            this.radLand.Name = "radLand";
+            this.radLand.Size = new System.Drawing.Size(14, 13);
+            this.radLand.TabIndex = 63;
+            this.radLand.UseVisualStyleBackColor = true;
+            this.radLand.CheckedChanged += new System.EventHandler(this.radLand_CheckedChanged);
+            // 
+            // pnlPlaneswalkerTypes
+            // 
+            this.pnlPlaneswalkerTypes.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.pnlPlaneswalkerTypes.Controls.Add(this.lblPlaneswalkerTypes);
+            this.pnlPlaneswalkerTypes.Location = new System.Drawing.Point(29, 47);
+            this.pnlPlaneswalkerTypes.Name = "pnlPlaneswalkerTypes";
+            this.pnlPlaneswalkerTypes.Size = new System.Drawing.Size(138, 21);
+            this.pnlPlaneswalkerTypes.TabIndex = 38;
+            // 
+            // lblPlaneswalkerTypes
+            // 
+            this.lblPlaneswalkerTypes.AutoSize = true;
+            this.lblPlaneswalkerTypes.Font = new System.Drawing.Font("Franklin Gothic Book", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaneswalkerTypes.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblPlaneswalkerTypes.Location = new System.Drawing.Point(1, 3);
+            this.lblPlaneswalkerTypes.Name = "lblPlaneswalkerTypes";
+            this.lblPlaneswalkerTypes.Size = new System.Drawing.Size(115, 14);
+            this.lblPlaneswalkerTypes.TabIndex = 2;
+            this.lblPlaneswalkerTypes.Text = "Tipo de Planeswalker";
+            // 
+            // radPlaneswalker
+            // 
+            this.radPlaneswalker.AutoSize = true;
+            this.radPlaneswalker.Location = new System.Drawing.Point(10, 51);
+            this.radPlaneswalker.Name = "radPlaneswalker";
+            this.radPlaneswalker.Size = new System.Drawing.Size(14, 13);
+            this.radPlaneswalker.TabIndex = 62;
+            this.radPlaneswalker.UseVisualStyleBackColor = true;
+            this.radPlaneswalker.CheckedChanged += new System.EventHandler(this.radPlaneswalker_CheckedChanged);
+            // 
+            // cboCreatureTypes
+            // 
+            this.cboCreatureTypes.FormattingEnabled = true;
+            this.cboCreatureTypes.Location = new System.Drawing.Point(168, 20);
+            this.cboCreatureTypes.Name = "cboCreatureTypes";
+            this.cboCreatureTypes.Size = new System.Drawing.Size(161, 21);
+            this.cboCreatureTypes.TabIndex = 35;
+            // 
+            // pnlCreatureTypes
+            // 
+            this.pnlCreatureTypes.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.pnlCreatureTypes.Controls.Add(this.lblCreatureTypes);
+            this.pnlCreatureTypes.Location = new System.Drawing.Point(29, 20);
+            this.pnlCreatureTypes.Name = "pnlCreatureTypes";
+            this.pnlCreatureTypes.Size = new System.Drawing.Size(138, 21);
+            this.pnlCreatureTypes.TabIndex = 36;
+            // 
+            // lblCreatureTypes
+            // 
+            this.lblCreatureTypes.AutoSize = true;
+            this.lblCreatureTypes.Font = new System.Drawing.Font("Franklin Gothic Book", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreatureTypes.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblCreatureTypes.Location = new System.Drawing.Point(1, 3);
+            this.lblCreatureTypes.Name = "lblCreatureTypes";
+            this.lblCreatureTypes.Size = new System.Drawing.Size(88, 14);
+            this.lblCreatureTypes.TabIndex = 2;
+            this.lblCreatureTypes.Text = "Tipo de Criatura";
+            // 
+            // cboSpellTypes
+            // 
+            this.cboSpellTypes.FormattingEnabled = true;
+            this.cboSpellTypes.Location = new System.Drawing.Point(168, 155);
+            this.cboSpellTypes.Name = "cboSpellTypes";
+            this.cboSpellTypes.Size = new System.Drawing.Size(161, 21);
+            this.cboSpellTypes.TabIndex = 45;
+            // 
+            // pnlSpellTypes
+            // 
+            this.pnlSpellTypes.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.pnlSpellTypes.Controls.Add(this.lblSpellTypes);
+            this.pnlSpellTypes.Location = new System.Drawing.Point(29, 155);
+            this.pnlSpellTypes.Name = "pnlSpellTypes";
+            this.pnlSpellTypes.Size = new System.Drawing.Size(138, 21);
+            this.pnlSpellTypes.TabIndex = 46;
+            // 
+            // lblSpellTypes
+            // 
+            this.lblSpellTypes.AutoSize = true;
+            this.lblSpellTypes.Font = new System.Drawing.Font("Franklin Gothic Book", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpellTypes.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblSpellTypes.Location = new System.Drawing.Point(1, 3);
+            this.lblSpellTypes.Name = "lblSpellTypes";
+            this.lblSpellTypes.Size = new System.Drawing.Size(82, 14);
+            this.lblSpellTypes.TabIndex = 2;
+            this.lblSpellTypes.Text = "Tipo de Feitiço";
+            // 
+            // cboEnchantmentTypes
+            // 
+            this.cboEnchantmentTypes.FormattingEnabled = true;
+            this.cboEnchantmentTypes.Location = new System.Drawing.Point(168, 128);
+            this.cboEnchantmentTypes.Name = "cboEnchantmentTypes";
+            this.cboEnchantmentTypes.Size = new System.Drawing.Size(161, 21);
+            this.cboEnchantmentTypes.TabIndex = 43;
+            // 
+            // pnlEnchantmentYypes
+            // 
+            this.pnlEnchantmentYypes.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.pnlEnchantmentYypes.Controls.Add(this.lblEnchantmentYypes);
+            this.pnlEnchantmentYypes.Location = new System.Drawing.Point(29, 128);
+            this.pnlEnchantmentYypes.Name = "pnlEnchantmentYypes";
+            this.pnlEnchantmentYypes.Size = new System.Drawing.Size(138, 21);
+            this.pnlEnchantmentYypes.TabIndex = 44;
+            // 
+            // lblEnchantmentYypes
+            // 
+            this.lblEnchantmentYypes.AutoSize = true;
+            this.lblEnchantmentYypes.Font = new System.Drawing.Font("Franklin Gothic Book", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnchantmentYypes.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblEnchantmentYypes.Location = new System.Drawing.Point(1, 3);
+            this.lblEnchantmentYypes.Name = "lblEnchantmentYypes";
+            this.lblEnchantmentYypes.Size = new System.Drawing.Size(119, 14);
+            this.lblEnchantmentYypes.TabIndex = 2;
+            this.lblEnchantmentYypes.Text = "Tipo de Encantamento";
+            // 
+            // cboArtifactTypes
+            // 
+            this.cboArtifactTypes.FormattingEnabled = true;
+            this.cboArtifactTypes.Location = new System.Drawing.Point(168, 101);
+            this.cboArtifactTypes.Name = "cboArtifactTypes";
+            this.cboArtifactTypes.Size = new System.Drawing.Size(161, 21);
+            this.cboArtifactTypes.TabIndex = 41;
+            // 
+            // pnlArtifactTypes
+            // 
+            this.pnlArtifactTypes.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.pnlArtifactTypes.Controls.Add(this.lblArtifactTypes);
+            this.pnlArtifactTypes.Location = new System.Drawing.Point(29, 101);
+            this.pnlArtifactTypes.Name = "pnlArtifactTypes";
+            this.pnlArtifactTypes.Size = new System.Drawing.Size(138, 21);
+            this.pnlArtifactTypes.TabIndex = 42;
+            // 
+            // lblArtifactTypes
+            // 
+            this.lblArtifactTypes.AutoSize = true;
+            this.lblArtifactTypes.Font = new System.Drawing.Font("Franklin Gothic Book", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArtifactTypes.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblArtifactTypes.Location = new System.Drawing.Point(1, 3);
+            this.lblArtifactTypes.Name = "lblArtifactTypes";
+            this.lblArtifactTypes.Size = new System.Drawing.Size(88, 14);
+            this.lblArtifactTypes.TabIndex = 2;
+            this.lblArtifactTypes.Text = "Tipo de Artefato";
             // 
             // cboOrder
             // 
@@ -436,110 +702,6 @@
             this.cboToughnesses.Size = new System.Drawing.Size(185, 21);
             this.cboToughnesses.TabIndex = 49;
             // 
-            // pnlArtifactTypes
-            // 
-            this.pnlArtifactTypes.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.pnlArtifactTypes.Controls.Add(this.lblArtifactTypes);
-            this.pnlArtifactTypes.Location = new System.Drawing.Point(29, 101);
-            this.pnlArtifactTypes.Name = "pnlArtifactTypes";
-            this.pnlArtifactTypes.Size = new System.Drawing.Size(138, 21);
-            this.pnlArtifactTypes.TabIndex = 42;
-            // 
-            // lblArtifactTypes
-            // 
-            this.lblArtifactTypes.AutoSize = true;
-            this.lblArtifactTypes.Font = new System.Drawing.Font("Franklin Gothic Book", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArtifactTypes.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblArtifactTypes.Location = new System.Drawing.Point(1, 3);
-            this.lblArtifactTypes.Name = "lblArtifactTypes";
-            this.lblArtifactTypes.Size = new System.Drawing.Size(88, 14);
-            this.lblArtifactTypes.TabIndex = 2;
-            this.lblArtifactTypes.Text = "Tipo de Artefato";
-            // 
-            // cboArtifactTypes
-            // 
-            this.cboArtifactTypes.FormattingEnabled = true;
-            this.cboArtifactTypes.Location = new System.Drawing.Point(168, 101);
-            this.cboArtifactTypes.Name = "cboArtifactTypes";
-            this.cboArtifactTypes.Size = new System.Drawing.Size(161, 21);
-            this.cboArtifactTypes.TabIndex = 41;
-            // 
-            // pnlEnchantmentYypes
-            // 
-            this.pnlEnchantmentYypes.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.pnlEnchantmentYypes.Controls.Add(this.lblEnchantmentYypes);
-            this.pnlEnchantmentYypes.Location = new System.Drawing.Point(29, 128);
-            this.pnlEnchantmentYypes.Name = "pnlEnchantmentYypes";
-            this.pnlEnchantmentYypes.Size = new System.Drawing.Size(138, 21);
-            this.pnlEnchantmentYypes.TabIndex = 44;
-            // 
-            // lblEnchantmentYypes
-            // 
-            this.lblEnchantmentYypes.AutoSize = true;
-            this.lblEnchantmentYypes.Font = new System.Drawing.Font("Franklin Gothic Book", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnchantmentYypes.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblEnchantmentYypes.Location = new System.Drawing.Point(1, 3);
-            this.lblEnchantmentYypes.Name = "lblEnchantmentYypes";
-            this.lblEnchantmentYypes.Size = new System.Drawing.Size(119, 14);
-            this.lblEnchantmentYypes.TabIndex = 2;
-            this.lblEnchantmentYypes.Text = "Tipo de Encantamento";
-            // 
-            // cboEnchantmentTypes
-            // 
-            this.cboEnchantmentTypes.FormattingEnabled = true;
-            this.cboEnchantmentTypes.Location = new System.Drawing.Point(168, 128);
-            this.cboEnchantmentTypes.Name = "cboEnchantmentTypes";
-            this.cboEnchantmentTypes.Size = new System.Drawing.Size(161, 21);
-            this.cboEnchantmentTypes.TabIndex = 43;
-            // 
-            // pnlSpellTypes
-            // 
-            this.pnlSpellTypes.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.pnlSpellTypes.Controls.Add(this.lblSpellTypes);
-            this.pnlSpellTypes.Location = new System.Drawing.Point(29, 155);
-            this.pnlSpellTypes.Name = "pnlSpellTypes";
-            this.pnlSpellTypes.Size = new System.Drawing.Size(138, 21);
-            this.pnlSpellTypes.TabIndex = 46;
-            // 
-            // lblSpellTypes
-            // 
-            this.lblSpellTypes.AutoSize = true;
-            this.lblSpellTypes.Font = new System.Drawing.Font("Franklin Gothic Book", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpellTypes.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblSpellTypes.Location = new System.Drawing.Point(1, 3);
-            this.lblSpellTypes.Name = "lblSpellTypes";
-            this.lblSpellTypes.Size = new System.Drawing.Size(82, 14);
-            this.lblSpellTypes.TabIndex = 2;
-            this.lblSpellTypes.Text = "Tipo de Feitiço";
-            // 
-            // cboSpellTypes
-            // 
-            this.cboSpellTypes.FormattingEnabled = true;
-            this.cboSpellTypes.Location = new System.Drawing.Point(168, 155);
-            this.cboSpellTypes.Name = "cboSpellTypes";
-            this.cboSpellTypes.Size = new System.Drawing.Size(161, 21);
-            this.cboSpellTypes.TabIndex = 45;
-            // 
-            // pnlCreatureTypes
-            // 
-            this.pnlCreatureTypes.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.pnlCreatureTypes.Controls.Add(this.lblCreatureTypes);
-            this.pnlCreatureTypes.Location = new System.Drawing.Point(29, 20);
-            this.pnlCreatureTypes.Name = "pnlCreatureTypes";
-            this.pnlCreatureTypes.Size = new System.Drawing.Size(138, 21);
-            this.pnlCreatureTypes.TabIndex = 36;
-            // 
-            // lblCreatureTypes
-            // 
-            this.lblCreatureTypes.AutoSize = true;
-            this.lblCreatureTypes.Font = new System.Drawing.Font("Franklin Gothic Book", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreatureTypes.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblCreatureTypes.Location = new System.Drawing.Point(1, 3);
-            this.lblCreatureTypes.Name = "lblCreatureTypes";
-            this.lblCreatureTypes.Size = new System.Drawing.Size(88, 14);
-            this.lblCreatureTypes.TabIndex = 2;
-            this.lblCreatureTypes.Text = "Tipo de Criatura";
-            // 
             // pnlWordBank
             // 
             this.pnlWordBank.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -559,14 +721,6 @@
             this.lblWordBank.Size = new System.Drawing.Size(86, 14);
             this.lblWordBank.TabIndex = 2;
             this.lblWordBank.Text = "Palavras Chave";
-            // 
-            // cboCreatureTypes
-            // 
-            this.cboCreatureTypes.FormattingEnabled = true;
-            this.cboCreatureTypes.Location = new System.Drawing.Point(168, 20);
-            this.cboCreatureTypes.Name = "cboCreatureTypes";
-            this.cboCreatureTypes.Size = new System.Drawing.Size(161, 21);
-            this.cboCreatureTypes.TabIndex = 35;
             // 
             // pnlArtistNames
             // 
@@ -588,26 +742,6 @@
             this.lblArtistNames.TabIndex = 2;
             this.lblArtistNames.Text = "Nome do Artista";
             // 
-            // pnlPlaneswalkerTypes
-            // 
-            this.pnlPlaneswalkerTypes.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.pnlPlaneswalkerTypes.Controls.Add(this.lblPlaneswalkerTypes);
-            this.pnlPlaneswalkerTypes.Location = new System.Drawing.Point(29, 47);
-            this.pnlPlaneswalkerTypes.Name = "pnlPlaneswalkerTypes";
-            this.pnlPlaneswalkerTypes.Size = new System.Drawing.Size(138, 21);
-            this.pnlPlaneswalkerTypes.TabIndex = 38;
-            // 
-            // lblPlaneswalkerTypes
-            // 
-            this.lblPlaneswalkerTypes.AutoSize = true;
-            this.lblPlaneswalkerTypes.Font = new System.Drawing.Font("Franklin Gothic Book", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaneswalkerTypes.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblPlaneswalkerTypes.Location = new System.Drawing.Point(1, 3);
-            this.lblPlaneswalkerTypes.Name = "lblPlaneswalkerTypes";
-            this.lblPlaneswalkerTypes.Size = new System.Drawing.Size(115, 14);
-            this.lblPlaneswalkerTypes.TabIndex = 2;
-            this.lblPlaneswalkerTypes.Text = "Tipo de Planeswalker";
-            // 
             // cboWordBank
             // 
             this.cboWordBank.FormattingEnabled = true;
@@ -615,34 +749,6 @@
             this.cboWordBank.Name = "cboWordBank";
             this.cboWordBank.Size = new System.Drawing.Size(185, 21);
             this.cboWordBank.TabIndex = 33;
-            // 
-            // cboPlaneswalkerTypes
-            // 
-            this.cboPlaneswalkerTypes.FormattingEnabled = true;
-            this.cboPlaneswalkerTypes.Location = new System.Drawing.Point(168, 47);
-            this.cboPlaneswalkerTypes.Name = "cboPlaneswalkerTypes";
-            this.cboPlaneswalkerTypes.Size = new System.Drawing.Size(161, 21);
-            this.cboPlaneswalkerTypes.TabIndex = 37;
-            // 
-            // pnlLandTypes
-            // 
-            this.pnlLandTypes.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.pnlLandTypes.Controls.Add(this.lblLandTypes);
-            this.pnlLandTypes.Location = new System.Drawing.Point(29, 74);
-            this.pnlLandTypes.Name = "pnlLandTypes";
-            this.pnlLandTypes.Size = new System.Drawing.Size(138, 21);
-            this.pnlLandTypes.TabIndex = 40;
-            // 
-            // lblLandTypes
-            // 
-            this.lblLandTypes.AutoSize = true;
-            this.lblLandTypes.Font = new System.Drawing.Font("Franklin Gothic Book", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLandTypes.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblLandTypes.Location = new System.Drawing.Point(1, 3);
-            this.lblLandTypes.Name = "lblLandTypes";
-            this.lblLandTypes.Size = new System.Drawing.Size(86, 14);
-            this.lblLandTypes.TabIndex = 2;
-            this.lblLandTypes.Text = "Tipo de Terreno";
             // 
             // pnlCardNames
             // 
@@ -663,14 +769,6 @@
             this.lblCardNames.Size = new System.Drawing.Size(90, 14);
             this.lblCardNames.TabIndex = 2;
             this.lblCardNames.Text = "Carta Especifica";
-            // 
-            // cboLandTypes
-            // 
-            this.cboLandTypes.FormattingEnabled = true;
-            this.cboLandTypes.Location = new System.Drawing.Point(168, 74);
-            this.cboLandTypes.Name = "cboLandTypes";
-            this.cboLandTypes.Size = new System.Drawing.Size(161, 21);
-            this.cboLandTypes.TabIndex = 39;
             // 
             // cboArtistNames
             // 
@@ -739,189 +837,6 @@
             this.chkColorG.TabIndex = 10;
             this.chkColorG.UseVisualStyleBackColor = true;
             // 
-            // cboCardNames
-            // 
-            this.cboCardNames.FormattingEnabled = true;
-            this.cboCardNames.Location = new System.Drawing.Point(168, 77);
-            this.cboCardNames.Name = "cboCardNames";
-            this.cboCardNames.Size = new System.Drawing.Size(185, 21);
-            this.cboCardNames.TabIndex = 3;
-            // 
-            // lblSearch
-            // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblSearch.Location = new System.Drawing.Point(11, 6);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(100, 15);
-            this.lblSearch.TabIndex = 1;
-            this.lblSearch.Text = "Busca por Nome";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(118, 4);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(234, 20);
-            this.txtSearch.TabIndex = 0;
-            // 
-            // ContainerGridAndData
-            // 
-            this.ContainerGridAndData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ContainerGridAndData.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.ContainerGridAndData.Location = new System.Drawing.Point(0, 0);
-            this.ContainerGridAndData.Name = "ContainerGridAndData";
-            // 
-            // ContainerGridAndData.Panel1
-            // 
-            this.ContainerGridAndData.Panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ContainerGridAndData.Panel1.Controls.Add(this.grd);
-            // 
-            // ContainerGridAndData.Panel2
-            // 
-            this.ContainerGridAndData.Panel2.Controls.Add(this.containerCardValues);
-            this.ContainerGridAndData.Size = new System.Drawing.Size(870, 611);
-            this.ContainerGridAndData.SplitterDistance = 652;
-            this.ContainerGridAndData.TabIndex = 0;
-            // 
-            // grd
-            // 
-            this.grd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.grd.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.grd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grd.Location = new System.Drawing.Point(0, 0);
-            this.grd.Name = "grd";
-            this.grd.Size = new System.Drawing.Size(652, 611);
-            this.grd.TabIndex = 0;
-            this.grd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_CellClick);
-            // 
-            // containerCardValues
-            // 
-            this.containerCardValues.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.containerCardValues.Location = new System.Drawing.Point(0, 0);
-            this.containerCardValues.Name = "containerCardValues";
-            this.containerCardValues.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // containerCardValues.Panel1
-            // 
-            this.containerCardValues.Panel1.Controls.Add(this.pic1);
-            // 
-            // containerCardValues.Panel2
-            // 
-            this.containerCardValues.Panel2.Controls.Add(this.grdCardData);
-            this.containerCardValues.Size = new System.Drawing.Size(214, 611);
-            this.containerCardValues.SplitterDistance = 300;
-            this.containerCardValues.TabIndex = 0;
-            // 
-            // grdCardData
-            // 
-            this.grdCardData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdCardData.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.grdCardData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grdCardData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdCardData.Location = new System.Drawing.Point(13, 10);
-            this.grdCardData.Name = "grdCardData";
-            this.grdCardData.Size = new System.Drawing.Size(189, 285);
-            this.grdCardData.TabIndex = 0;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // radCreature
-            // 
-            this.radCreature.AutoSize = true;
-            this.radCreature.Checked = true;
-            this.radCreature.Location = new System.Drawing.Point(10, 23);
-            this.radCreature.Name = "radCreature";
-            this.radCreature.Size = new System.Drawing.Size(14, 13);
-            this.radCreature.TabIndex = 61;
-            this.radCreature.TabStop = true;
-            this.radCreature.UseVisualStyleBackColor = true;
-            this.radCreature.CheckedChanged += new System.EventHandler(this.radCreature_CheckedChanged);
-            // 
-            // radPlaneswalker
-            // 
-            this.radPlaneswalker.AutoSize = true;
-            this.radPlaneswalker.Location = new System.Drawing.Point(10, 51);
-            this.radPlaneswalker.Name = "radPlaneswalker";
-            this.radPlaneswalker.Size = new System.Drawing.Size(14, 13);
-            this.radPlaneswalker.TabIndex = 62;
-            this.radPlaneswalker.UseVisualStyleBackColor = true;
-            this.radPlaneswalker.CheckedChanged += new System.EventHandler(this.radPlaneswalker_CheckedChanged);
-            // 
-            // radLand
-            // 
-            this.radLand.AutoSize = true;
-            this.radLand.Location = new System.Drawing.Point(10, 77);
-            this.radLand.Name = "radLand";
-            this.radLand.Size = new System.Drawing.Size(14, 13);
-            this.radLand.TabIndex = 63;
-            this.radLand.UseVisualStyleBackColor = true;
-            this.radLand.CheckedChanged += new System.EventHandler(this.radLand_CheckedChanged);
-            // 
-            // radArtifact
-            // 
-            this.radArtifact.AutoSize = true;
-            this.radArtifact.Location = new System.Drawing.Point(10, 105);
-            this.radArtifact.Name = "radArtifact";
-            this.radArtifact.Size = new System.Drawing.Size(14, 13);
-            this.radArtifact.TabIndex = 64;
-            this.radArtifact.UseVisualStyleBackColor = true;
-            this.radArtifact.CheckedChanged += new System.EventHandler(this.radArtifact_CheckedChanged);
-            // 
-            // radEnchantment
-            // 
-            this.radEnchantment.AutoSize = true;
-            this.radEnchantment.Location = new System.Drawing.Point(9, 132);
-            this.radEnchantment.Name = "radEnchantment";
-            this.radEnchantment.Size = new System.Drawing.Size(14, 13);
-            this.radEnchantment.TabIndex = 65;
-            this.radEnchantment.UseVisualStyleBackColor = true;
-            this.radEnchantment.CheckedChanged += new System.EventHandler(this.radEnchantment_CheckedChanged);
-            // 
-            // radSpell
-            // 
-            this.radSpell.AutoSize = true;
-            this.radSpell.Location = new System.Drawing.Point(10, 158);
-            this.radSpell.Name = "radSpell";
-            this.radSpell.Size = new System.Drawing.Size(14, 13);
-            this.radSpell.TabIndex = 66;
-            this.radSpell.UseVisualStyleBackColor = true;
-            this.radSpell.CheckedChanged += new System.EventHandler(this.radSpell_CheckedChanged);
-            // 
-            // grpTypes
-            // 
-            this.grpTypes.Controls.Add(this.radCreature);
-            this.grpTypes.Controls.Add(this.radSpell);
-            this.grpTypes.Controls.Add(this.cboLandTypes);
-            this.grpTypes.Controls.Add(this.radEnchantment);
-            this.grpTypes.Controls.Add(this.pnlLandTypes);
-            this.grpTypes.Controls.Add(this.radArtifact);
-            this.grpTypes.Controls.Add(this.cboPlaneswalkerTypes);
-            this.grpTypes.Controls.Add(this.radLand);
-            this.grpTypes.Controls.Add(this.pnlPlaneswalkerTypes);
-            this.grpTypes.Controls.Add(this.radPlaneswalker);
-            this.grpTypes.Controls.Add(this.cboCreatureTypes);
-            this.grpTypes.Controls.Add(this.pnlCreatureTypes);
-            this.grpTypes.Controls.Add(this.cboSpellTypes);
-            this.grpTypes.Controls.Add(this.pnlSpellTypes);
-            this.grpTypes.Controls.Add(this.cboEnchantmentTypes);
-            this.grpTypes.Controls.Add(this.pnlEnchantmentYypes);
-            this.grpTypes.Controls.Add(this.cboArtifactTypes);
-            this.grpTypes.Controls.Add(this.pnlArtifactTypes);
-            this.grpTypes.Location = new System.Drawing.Point(8, 374);
-            this.grpTypes.Name = "grpTypes";
-            this.grpTypes.Size = new System.Drawing.Size(344, 184);
-            this.grpTypes.TabIndex = 67;
-            this.grpTypes.TabStop = false;
-            this.grpTypes.Text = "Filtrar por Tipo";
-            // 
             // picColorW
             // 
             this.picColorW.Image = global::MTGBox.Properties.Resources.MTG_White;
@@ -973,18 +888,148 @@
             this.picColorG.TabIndex = 5;
             this.picColorG.TabStop = false;
             // 
+            // cboCardNames
+            // 
+            this.cboCardNames.FormattingEnabled = true;
+            this.cboCardNames.Location = new System.Drawing.Point(168, 77);
+            this.cboCardNames.Name = "cboCardNames";
+            this.cboCardNames.Size = new System.Drawing.Size(185, 21);
+            this.cboCardNames.TabIndex = 3;
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblSearch.Location = new System.Drawing.Point(11, 6);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(100, 15);
+            this.lblSearch.TabIndex = 1;
+            this.lblSearch.Text = "Busca por Nome";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(118, 4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(234, 20);
+            this.txtSearch.TabIndex = 0;
+            // 
+            // ContainerGridAndData
+            // 
+            this.ContainerGridAndData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ContainerGridAndData.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.ContainerGridAndData.Location = new System.Drawing.Point(0, 0);
+            this.ContainerGridAndData.Name = "ContainerGridAndData";
+            // 
+            // ContainerGridAndData.Panel1
+            // 
+            this.ContainerGridAndData.Panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ContainerGridAndData.Panel1.Controls.Add(this.grd);
+            // 
+            // ContainerGridAndData.Panel2
+            // 
+            this.ContainerGridAndData.Panel2.Controls.Add(this.containerCardValues);
+            this.ContainerGridAndData.Size = new System.Drawing.Size(870, 611);
+            this.ContainerGridAndData.SplitterDistance = 652;
+            this.ContainerGridAndData.TabIndex = 0;
+            // 
+            // containerCardAndButtons
+            // 
+            this.containerCardAndButtons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.containerCardAndButtons.Location = new System.Drawing.Point(0, 0);
+            this.containerCardAndButtons.Name = "containerCardAndButtons";
+            this.containerCardAndButtons.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // containerCardAndButtons.Panel1
+            // 
+            this.containerCardAndButtons.Panel1.Controls.Add(this.panel3);
+            // 
+            // containerCardAndButtons.Panel2
+            // 
+            this.containerCardAndButtons.Panel2.Controls.Add(this.pic1);
+            this.containerCardAndButtons.Size = new System.Drawing.Size(214, 300);
+            this.containerCardAndButtons.SplitterDistance = 40;
+            this.containerCardAndButtons.TabIndex = 1;
+            // 
+            // grd
+            // 
+            this.grd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.grd.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.grd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grd.Location = new System.Drawing.Point(0, 0);
+            this.grd.Name = "grd";
+            this.grd.Size = new System.Drawing.Size(652, 611);
+            this.grd.TabIndex = 0;
+            this.grd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_CellClick);
+            // 
+            // containerCardValues
+            // 
+            this.containerCardValues.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.containerCardValues.Location = new System.Drawing.Point(0, 0);
+            this.containerCardValues.Name = "containerCardValues";
+            this.containerCardValues.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // containerCardValues.Panel1
+            // 
+            this.containerCardValues.Panel1.Controls.Add(this.containerCardAndButtons);
+            // 
+            // containerCardValues.Panel2
+            // 
+            this.containerCardValues.Panel2.Controls.Add(this.grdCardData);
+            this.containerCardValues.Size = new System.Drawing.Size(214, 611);
+            this.containerCardValues.SplitterDistance = 300;
+            this.containerCardValues.TabIndex = 0;
+            // 
             // pic1
             // 
-            this.pic1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pic1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.pic1.Location = new System.Drawing.Point(13, 12);
+            this.pic1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pic1.Location = new System.Drawing.Point(0, 0);
             this.pic1.Name = "pic1";
-            this.pic1.Size = new System.Drawing.Size(189, 276);
+            this.pic1.Size = new System.Drawing.Size(214, 256);
             this.pic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic1.TabIndex = 0;
             this.pic1.TabStop = false;
+            // 
+            // grdCardData
+            // 
+            this.grdCardData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdCardData.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.grdCardData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grdCardData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdCardData.Location = new System.Drawing.Point(13, 10);
+            this.grdCardData.Name = "grdCardData";
+            this.grdCardData.Size = new System.Drawing.Size(189, 285);
+            this.grdCardData.TabIndex = 0;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(214, 40);
+            this.panel3.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::MTGBox.Properties.Resources.AddIcon;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 68;
+            this.pictureBox1.TabStop = false;
             // 
             // FormCardList
             // 
@@ -1002,6 +1047,20 @@
             this.MainContainerSearch.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.grpTypes.ResumeLayout(false);
+            this.grpTypes.PerformLayout();
+            this.pnlLandTypes.ResumeLayout(false);
+            this.pnlLandTypes.PerformLayout();
+            this.pnlPlaneswalkerTypes.ResumeLayout(false);
+            this.pnlPlaneswalkerTypes.PerformLayout();
+            this.pnlCreatureTypes.ResumeLayout(false);
+            this.pnlCreatureTypes.PerformLayout();
+            this.pnlSpellTypes.ResumeLayout(false);
+            this.pnlSpellTypes.PerformLayout();
+            this.pnlEnchantmentYypes.ResumeLayout(false);
+            this.pnlEnchantmentYypes.PerformLayout();
+            this.pnlArtifactTypes.ResumeLayout(false);
+            this.pnlArtifactTypes.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.pnlAbilityWords.ResumeLayout(false);
@@ -1018,42 +1077,34 @@
             this.pnlPowers.PerformLayout();
             this.pnlToughnesses.ResumeLayout(false);
             this.pnlToughnesses.PerformLayout();
-            this.pnlArtifactTypes.ResumeLayout(false);
-            this.pnlArtifactTypes.PerformLayout();
-            this.pnlEnchantmentYypes.ResumeLayout(false);
-            this.pnlEnchantmentYypes.PerformLayout();
-            this.pnlSpellTypes.ResumeLayout(false);
-            this.pnlSpellTypes.PerformLayout();
-            this.pnlCreatureTypes.ResumeLayout(false);
-            this.pnlCreatureTypes.PerformLayout();
             this.pnlWordBank.ResumeLayout(false);
             this.pnlWordBank.PerformLayout();
             this.pnlArtistNames.ResumeLayout(false);
             this.pnlArtistNames.PerformLayout();
-            this.pnlPlaneswalkerTypes.ResumeLayout(false);
-            this.pnlPlaneswalkerTypes.PerformLayout();
-            this.pnlLandTypes.ResumeLayout(false);
-            this.pnlLandTypes.PerformLayout();
             this.pnlCardNames.ResumeLayout(false);
             this.pnlCardNames.PerformLayout();
-            this.ContainerGridAndData.Panel1.ResumeLayout(false);
-            this.ContainerGridAndData.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ContainerGridAndData)).EndInit();
-            this.ContainerGridAndData.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grd)).EndInit();
-            this.containerCardValues.Panel1.ResumeLayout(false);
-            this.containerCardValues.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.containerCardValues)).EndInit();
-            this.containerCardValues.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdCardData)).EndInit();
-            this.grpTypes.ResumeLayout(false);
-            this.grpTypes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picColorW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picColorR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picColorB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picColorU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picColorG)).EndInit();
+            this.ContainerGridAndData.Panel1.ResumeLayout(false);
+            this.ContainerGridAndData.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ContainerGridAndData)).EndInit();
+            this.ContainerGridAndData.ResumeLayout(false);
+            this.containerCardAndButtons.Panel1.ResumeLayout(false);
+            this.containerCardAndButtons.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.containerCardAndButtons)).EndInit();
+            this.containerCardAndButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grd)).EndInit();
+            this.containerCardValues.Panel1.ResumeLayout(false);
+            this.containerCardValues.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.containerCardValues)).EndInit();
+            this.containerCardValues.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCardData)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1139,5 +1190,8 @@
         private System.Windows.Forms.RadioButton radPlaneswalker;
         private System.Windows.Forms.RadioButton radCreature;
         private System.Windows.Forms.GroupBox grpTypes;
+        private System.Windows.Forms.SplitContainer containerCardAndButtons;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
