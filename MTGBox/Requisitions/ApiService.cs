@@ -13,45 +13,40 @@ namespace MTGBox.Requisitions
 {
     public class ApiService
     {
-        public void GetCardsWithParameters(String name, Boolean includeExtras, Boolean includeMultilingual, String order, Int32 page, String unique)
+        public List<Card> GetCardsWithParameters(String searchText, String artist, String type, String order, String oracle, String colors, String language)
         {
-            String stringFormat = "format=json";
-            String stringIncludeExtras = "include_extras=" + includeExtras;
-            String stringIncludeMultilingual = "include_multilingual=" + includeMultilingual;
-            String stringOrder = "order=" + order;
-            String stringPage = "page=" + page;
-            String stringQuery = "q=c%3Ablue+pow%3D3";
-            String stringUnique = "unique=" + unique;
+            var query = "q=";
+            var requisition = "https://api.scryfall.com/cards/search?";
 
-            var customUrl = "https://api.scryfall.com/cards/search?" +
-                stringFormat + "&" +
-                stringIncludeExtras + "&" +
-                stringIncludeMultilingual + "&" +
-                stringOrder + "&" +
-                stringPage + "&" +
-                stringQuery + "&" +
-                stringUnique;
+            var fullUrl =
+                requisition +
+                order +
+                query +
+                searchText +
+                type +
+                artist +
+                oracle +
+                colors +
+                language;
 
-            var card = new Card();
-
+            var cardPack = new CardPack();
             try
             {
-                card = new GetJson().GetCardObject(customUrl);
+                cardPack = (CardPack)new GetJson().GetCardPackObject(fullUrl);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Wrong request ! " + ex.Message, "Error");
             }
-
-            var listCards = new List<Card>();
+            return cardPack.Cards;
         }
 
-        private List<Card> GetRandomCards(Int32 quant)
+        private List<Card> GetRandomCards(Int32 quantitie)
         {
             List<Card> cards = new List<Card>();
 
             var count = 0;
-            while (count < 10) 
+            while (count < quantitie) 
             {
                 var card = new Card();
                 try

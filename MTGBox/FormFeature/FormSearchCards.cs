@@ -39,7 +39,7 @@ namespace MTGBox
         #region events
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            GetCardsWithParameters("https://api.scryfall.com/cards/search?");
+            GetCardsWithParameters();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -81,6 +81,11 @@ namespace MTGBox
         private void radSpell_CheckedChanged(object sender, EventArgs e)
         {
             RefreshComboboxTypes();
+        }
+
+        private void grd_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ShowDataCard();
         }
         #endregion
 
@@ -302,71 +307,36 @@ namespace MTGBox
             cboPlaneswalkerTypes.SelectedItem = cboPlaneswalkerTypes.Enabled ? cboPlaneswalkerTypes.SelectedItem : null;
             cboSpellTypes.SelectedItem = cboSpellTypes.Enabled ? cboSpellTypes.SelectedItem = cboSpellTypes.Enabled : null;
         }
-        #endregion
 
-        private void grd_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void ShowDataCard()
         {
             grdCardData.Rows.Clear();
             grdCardData.Refresh();
             var card = (grd.SelectedCells[0].Tag as Card);
             if (card == null)
                 return;
-            pic1.LoadAsync(@"" + card.ImageUris != null 
+            pic1.LoadAsync(@"" + card.ImageUris != null
                 ? card.ImageUris.Normal
-                : card.ImageUris.Normal != null 
+                : card.ImageUris.Normal != null
                     ? card.ImageUris.Normal
                     : "https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/thumb/f/f8/Magic_card_back.jpg/250px-Magic_card_back.jpg?version=56c40a91c76ffdbe89867f0bc5172888");
 
             SetCardValues(card);
         }
 
-        private void GetCardsWithParameters(String search)
+        private void GetCardsWithParameters()
         {
-            //  color%3E%3DBR                                       -> Fire color>=BR lang:pt (inclui as cores Branco e Vermelho)
-            //  are %7BW%7D%7BW%7D%7BW%7D                           -> mana:{W}{W}{W} lang:pt (contem 3 manas brancas no custo)
-            //  %28set are atq%29                                   -> (set:atq) (set antiquetis)
-            //  oracle are openBraces X closeBraces + type are land -> oracle:{X} type:land lang:pt
-            //  oracle are openBraces X closeBraces +-type are land -> oracle:{X} -type:land lang:pt
-
-            var openGroup = "%28";     // (
-            var closeGroup = "%29";    // )
-            var are = "%3A";           // :
-            var openBraces = "%7B";    // {
-            var closeBraces = "%7D";   // }
-            var and = "+";             // +
-            var equal = "%3D";         // =
-
-            var query = "q=";
-            var requisition = "https://api.scryfall.com/cards/search?";
-            var order = "order=" + cboOrder.SelectedItem  + "&";
-            var name = (txtSearch.Text.Equals(String.Empty) ? String.Empty : txtSearch.Text + and); /*adicionar validação para espaços*/
-            var type = GetCardType() + and;
+            var are = "%3A";
+            var and = "+";
+            var order = "order=" + cboOrder.SelectedItem + "&";
+            var searchText = (txtSearch.Text.Equals(String.Empty) ? String.Empty : txtSearch.Text + and);
+            var type = GetCardType();
             var artist = cboArtistNames.SelectedItem == null ? String.Empty : GetArtist(cboArtistNames.SelectedItem.ToString()) + and;
             var oracle = cboKeywordAbilities.SelectedItem == null ? String.Empty : "oracle" + are + cboKeywordAbilities.SelectedItem + and;
-            var color = GetColor() + and; 
+            var colors = GetColor();
             var language = "lang" + are + "pt";
-
-            var fullUrl = 
-                requisition + 
-                order + 
-                query + 
-                name + 
-                type +
-                artist +
-                oracle +
-                color +
-                language;
-
-            var cardPack = new CardPack();
-            try
-            {
-                cardPack = (CardPack)new GetJson().GetCardPackObject(fullUrl);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Wrong request ! " + ex.Message, "Error");
-            }
-            PopulateCards(cardPack.Cards);
+            var cardPack = new ApiService().GetCardsWithParameters(searchText, artist, type, order, oracle, colors, language);
+            PopulateCards(cardPack);
         }
 
         private String GetArtist(String artist)
@@ -383,12 +353,12 @@ namespace MTGBox
         private String GetColor()
         {
             var colors = String.Empty;
-            colors += chkColorB.Checked ? "B": String.Empty;
-            colors += chkColorU.Checked ? "U": String.Empty;
-            colors += chkColorW.Checked ? "W": String.Empty;
-            colors += chkColorR.Checked ? "R": String.Empty;
-            colors += chkColorG.Checked ? "G": String.Empty;
-            return colors.Equals(String.Empty) ? String.Empty : "color%3D" + colors;
+            colors += chkColorB.Checked ? "B" : String.Empty;
+            colors += chkColorU.Checked ? "U" : String.Empty;
+            colors += chkColorW.Checked ? "W" : String.Empty;
+            colors += chkColorR.Checked ? "R" : String.Empty;
+            colors += chkColorG.Checked ? "G" : String.Empty;
+            return colors.Equals(String.Empty) ? String.Empty : "color%3D" + colors + "+";
         }
 
         private String GetCardType()
@@ -400,7 +370,8 @@ namespace MTGBox
             type += cboSpellTypes.Enabled ? cboSpellTypes.SelectedItem : String.Empty;
             type += cboEnchantmentTypes.Enabled ? cboEnchantmentTypes.SelectedItem : String.Empty;
             type += cboLandTypes.Enabled ? cboLandTypes.SelectedItem : String.Empty;
-            return type.Equals(String.Empty) ? String.Empty : "type%3A" + type;
+            return type.Equals(String.Empty) ? String.Empty : "type%3A" + type + "+";
         }
+        #endregion
     }
 }

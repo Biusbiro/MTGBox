@@ -49,15 +49,15 @@ namespace MTGBox.DAO
             Db.Execute(sqlCommand);
         }
 
-        public User SelectById(User user)
+        public User SelectById(Int32 idUser)
         {
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandType = CommandType.Text;
-            sqlCommand.CommandText = "select * from users where id = @id";
+            sqlCommand.CommandText = "select * from users where id = " + idUser;
 
             SqlDataReader sqlDataReader = Db.Select(sqlCommand);
 
-            User selectedUser = new User();
+            User user = new User();
             if (sqlDataReader.HasRows)
             {
                 sqlDataReader.Read();

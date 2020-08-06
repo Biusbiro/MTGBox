@@ -11,7 +11,7 @@ namespace MTGBox.Model
         public int Id { get; set; }
         public String Name { get; set; }
         public String Description { get; set; }
-        public int IdUser { get; set; }
+        public User User { get; set; }
 
     }
 }
