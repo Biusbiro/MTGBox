@@ -5,6 +5,8 @@ namespace MTGBox.Model
 {
     public class PurchaseUris
     {
+        public Int32 Id { get; set; }
+
         [JsonProperty("tcgplayer")]
         public String Tcgplayer { get; set; }
 

@@ -5,6 +5,8 @@ namespace MTGBox.Model
 {
     public class Prices
     {
+        public Int32 Id { get; set; }
+
         [JsonProperty("usd")]
         public String Usd { get; set; }
 

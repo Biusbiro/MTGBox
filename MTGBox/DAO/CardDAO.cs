@@ -19,7 +19,6 @@ namespace MTGBox.DAO
                 "insert into cards " +
                 "(" +
                     "name, " +
-                    "id_user" +
                     "oracle_id" +
                     "mtgo_id" +
                     "mtgo_foil_id" +
@@ -77,7 +76,6 @@ namespace MTGBox.DAO
                 ") " +
                 "values (" +
                     "@name, " +
-                    "@id_user" +
                     "@oracle_id" +
                     "@mtgo_id" +
                     "@mtgo_foil_id" +
@@ -135,7 +133,6 @@ namespace MTGBox.DAO
                 ")";
 
             sqlCommand.Parameters.AddWithValue("@name", card.Name);
-            sqlCommand.Parameters.AddWithValue("@id_user", card.User);
             sqlCommand.Parameters.AddWithValue("@oracle_id", card.OracleId);
             sqlCommand.Parameters.AddWithValue("@mtgo_id", card.MtgoId);
             sqlCommand.Parameters.AddWithValue("@mtgo_foil_id", card.MtgoFoilId);
@@ -194,49 +191,91 @@ namespace MTGBox.DAO
             Db.Execute(sqlCommand);
         }
 
-        public void Update(Deck deck)
-        {
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.CommandType = CommandType.Text;
-            sqlCommand.CommandText = "update deks set name = @name, description = @description, id_user = @id_user where id = @id";
-
-            sqlCommand.Parameters.AddWithValue("@id", deck.Id);
-            sqlCommand.Parameters.AddWithValue("@name", deck.Name);
-            sqlCommand.Parameters.AddWithValue("@description", deck.Description);
-            sqlCommand.Parameters.AddWithValue("@id_user", deck.User.Id);
-
-            Db.Execute(sqlCommand);
-        }
-
-        public void Delete(Deck deck)
+        public void Delete(Card card)
         {
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandType = CommandType.Text;
             sqlCommand.CommandText = "delete from decks where id = @id";
 
-            sqlCommand.Parameters.AddWithValue("@id", deck.Id);
+            sqlCommand.Parameters.AddWithValue("@id", card.Id);
 
             Db.Execute(sqlCommand);
         }
 
-        public Deck SelectById(Deck deck)
+        public Card SelectById(Int32 id)
         {
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandType = CommandType.Text;
-            sqlCommand.CommandText = "select * from decks where id = @id";
+            sqlCommand.CommandText = "select * from cards where id = @id";
+            sqlCommand.Parameters.AddWithValue("@id", id);
 
             SqlDataReader sqlDataReader = Db.Select(sqlCommand);
 
-            Deck selectedUser = new Deck();
+            Card selectedCard = new Card();
             if (sqlDataReader.HasRows)
             {
                 sqlDataReader.Read();
-                deck.Id = (Int32)sqlDataReader["id"];
-                deck.Name = (String)sqlDataReader["name"];
-                deck.Description = (String)sqlDataReader["description"];
-                deck.User = new UserDAO().SelectById((Int32)sqlDataReader["id_user"]);
+                selectedCard.Id = (String)sqlDataReader["id"];
 
-                return deck;
+                selectedCard.Name = (String)sqlDataReader["name"];
+                selectedCard.OracleId = (String)sqlDataReader["oracle_id"];
+                selectedCard.MtgoId = (int)sqlDataReader["mtgo_id"];
+                selectedCard.MtgoFoilId = (int)sqlDataReader["mtgo_foil_id"];
+                selectedCard.TcgplayerId = (int)sqlDataReader["tcgplayer_id"];
+                selectedCard.Lang = (String)sqlDataReader["lang"];
+                selectedCard.ReleasedAt = (String)sqlDataReader["released_at"];
+                selectedCard.Uri = (String)sqlDataReader["uri"];
+                selectedCard.ScryfallSetUri = (String)sqlDataReader["scryfall_uri"];
+                selectedCard.Layout = (String)sqlDataReader["layout"];
+                selectedCard.HighresImage = (Boolean)sqlDataReader["highres_image"];
+                selectedCard.ManaCost = (String)sqlDataReader["mana_cost"];
+                selectedCard.Cmc = (String)sqlDataReader["cmc"];
+                selectedCard.TypeLine = (String)sqlDataReader["type_line"];
+                selectedCard.Reserved = (Boolean)sqlDataReader["reserved"];
+                selectedCard.Foil = (Boolean)sqlDataReader["foil"];
+                selectedCard.Nonfoil = (Boolean)sqlDataReader["nonfoil"];
+                selectedCard.Oversized = (Boolean)sqlDataReader["oversized"];
+                selectedCard.Promo = (Boolean)sqlDataReader["promo"];
+                selectedCard.Reprint = (Boolean)sqlDataReader["reprint"];
+                selectedCard.Variation = (Boolean)sqlDataReader["variation"];
+                selectedCard.Set = (String)sqlDataReader["set"];
+                selectedCard.SetName = (String)sqlDataReader["set_name"];
+                selectedCard.SetType = (String)sqlDataReader["set_type"];
+                selectedCard.SetUri = (String)sqlDataReader["set_uri"];
+                selectedCard.SetSearchUri = (String)sqlDataReader["set_search_uri"];
+                selectedCard.ScryfallSetUri = (String)sqlDataReader["scryfall_set_uri"];
+                selectedCard.RulingsUri = (String)sqlDataReader["rulings_uri"];
+                selectedCard.OracleText = (String)sqlDataReader["oracle_text"];
+                selectedCard.PrintsSearchUri = (String)sqlDataReader["prints_search_uri"];
+                selectedCard.CollectorNumber = (String)sqlDataReader["collector_number"];
+                selectedCard.Digital = (Boolean)sqlDataReader["digital"];
+                selectedCard.Rarity = (String)sqlDataReader["rarity"];
+                selectedCard.FlavorText = (String)sqlDataReader["flavor_text"];
+                selectedCard.CardBackId = (String)sqlDataReader["card_back_id"];
+                selectedCard.Artist = (String)sqlDataReader["artist"];
+                selectedCard.IllustrationId = (String)sqlDataReader["illustration_id"];
+                selectedCard.BorderColor = (String)sqlDataReader["border_color"];
+                selectedCard.Frame = (String)sqlDataReader["frame"];
+                selectedCard.FullArt = (Boolean)sqlDataReader["full_art"];
+                selectedCard.Textless = (Boolean)sqlDataReader["textless"];
+                selectedCard.Booster = (Boolean)sqlDataReader["booster"];
+                selectedCard.StorySpotlight = (Boolean)sqlDataReader["story_spotlight"];
+                selectedCard.EdhrecRank = (Int32)sqlDataReader["edhrec_rank"];
+
+                //selectedCard.MultiverseIds = (Int32)sqlDataReader["multiverse_ids"];
+                //selectedCard.Colors = (String)sqlDataReader["colors"];
+                //selectedCard.ColorIdentity = (String)sqlDataReader["color_identity"];
+                //selectedCard.Keywords = (String)sqlDataReader["keywords"];
+                //selectedCard.Games = (String)sqlDataReader["games"];
+                //selectedCard.ArtistIds = (String)sqlDataReader["artist_ids"];
+
+                selectedCard.PurchaseUris = new PurchaseUrisDAO().SelectById((Int32)sqlDataReader["id_purchase_uris"]);
+                selectedCard.RelatedUris = new RelatedUrisDAO().SelectById((Int32)sqlDataReader["id_related_uris"]);
+                selectedCard.Prices = new PricesDAO().SelectById((Int32)sqlDataReader["id_prices"]);
+                //selectedCard.Legalities = (String)sqlDataReader["legalities"];
+                //selectedCard.ImageUris = (String)sqlDataReader["image_uris"];
+
+                return selectedCard;
             }
             else
             {

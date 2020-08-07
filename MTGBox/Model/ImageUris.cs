@@ -5,6 +5,8 @@ namespace MTGBox.Model
 {
     public class ImageUris
     {
+        public Int32 Id { get; set; }
+
         [JsonProperty("small")]
         public String Small { get; set; }
 

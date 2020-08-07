@@ -5,6 +5,8 @@ namespace MTGBox.Model
 {
     public class RelatedUris
     {
+        public Int32 Id { get; set; }
+
         [JsonProperty("gatherer")]
         public String Gatherer { get; set; }
 

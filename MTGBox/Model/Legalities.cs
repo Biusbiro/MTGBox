@@ -5,6 +5,8 @@ namespace MTGBox.Model
 {
     public class Legalities
     {
+        public Int32 Id { get; set; }
+
         [JsonProperty("standard")]
         public String Standard { get; set; }
 
