@@ -83,10 +83,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\CardDAO.cs" />
+    <Compile Include="DAO\ColorDAO.cs" />
+    <Compile Include="Model\Color.cs" />
     <Compile Include="DAO\Db.cs" />
     <Compile Include="DAO\DeckDAO.cs" />
     <Compile Include="DAO\ImageUrisDAO.cs" />
     <Compile Include="DAO\LegalitiesDAO.cs" />
+    <Compile Include="DAO\MultiverseIdDAO.cs" />
     <Compile Include="DAO\PricesDAO.cs" />
     <Compile Include="DAO\PurchaseUrisDAO.cs" />
     <Compile Include="DAO\RelatedUrisDAO.cs" />
@@ -119,6 +122,7 @@
     <Compile Include="Model\Catalog.cs" />
     <Compile Include="Model\ImageUris.cs" />
     <Compile Include="Model\Legalities.cs" />
+    <Compile Include="Model\MultiverseId.cs" />
     <Compile Include="Model\Prices.cs" />
     <Compile Include="Model\PurchaseUris.cs" />
     <Compile Include="Model\RelatedUris.cs" />

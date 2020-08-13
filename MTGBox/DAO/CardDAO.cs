@@ -262,7 +262,7 @@ namespace MTGBox.DAO
                 selectedCard.StorySpotlight = (Boolean)sqlDataReader["story_spotlight"];
                 selectedCard.EdhrecRank = (Int32)sqlDataReader["edhrec_rank"];
 
-                //selectedCard.MultiverseIds = (Int32)sqlDataReader["multiverse_ids"];
+                selectedCard.MultiverseIds = new MultiverseIdDAO().SelectAllByIdCard(1).Select(card => card.Id).ToList();
                 //selectedCard.Colors = (String)sqlDataReader["colors"];
                 //selectedCard.ColorIdentity = (String)sqlDataReader["color_identity"];
                 //selectedCard.Keywords = (String)sqlDataReader["keywords"];
@@ -272,8 +272,8 @@ namespace MTGBox.DAO
                 selectedCard.PurchaseUris = new PurchaseUrisDAO().SelectById((Int32)sqlDataReader["id_purchase_uris"]);
                 selectedCard.RelatedUris = new RelatedUrisDAO().SelectById((Int32)sqlDataReader["id_related_uris"]);
                 selectedCard.Prices = new PricesDAO().SelectById((Int32)sqlDataReader["id_prices"]);
-                //selectedCard.Legalities = (String)sqlDataReader["legalities"];
-                //selectedCard.ImageUris = (String)sqlDataReader["image_uris"];
+                selectedCard.Legalities = new LegalitiesDAO().SelectById((Int32)sqlDataReader["id_legalities"]);
+                selectedCard.ImageUris = new ImageUrisDAO().SelectById((Int32)sqlDataReader["image_uris"]);
 
                 return selectedCard;
             }
