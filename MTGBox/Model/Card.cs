@@ -6,6 +6,8 @@ namespace MTGBox.Model
 {
     public class Card
     {
+        public Int32 DbId { get; set; }
+
         [JsonProperty("object")]
         public String Object { get; set; }
 

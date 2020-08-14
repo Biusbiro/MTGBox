@@ -267,7 +267,7 @@ namespace MTGBox.DAO
                 selectedCard.ColorIdentity = new ColorIdentityDAO().SelectAllByIdCard(id).Select(obj => obj.Value).ToList();
                 selectedCard.Keywords = new KeywordDAO().SelectAllByIdCard(id).Select(obj => obj.Value).ToList();
                 selectedCard.Games = new GameDAO().SelectAllByIdCard(id).Select(obj => obj.Value).ToList();
-                selectedCard.ArtistIds = (String)sqlDataReader["artist_ids"];
+                selectedCard.ArtistIds = new ArtistIdDAO().SelectAllByIdCard(id).Select(obj => obj.Value).ToList();
 
                 selectedCard.PurchaseUris = new PurchaseUrisDAO().SelectById((Int32)sqlDataReader["id_purchase_uris"]);
                 selectedCard.RelatedUris = new RelatedUrisDAO().SelectById((Int32)sqlDataReader["id_related_uris"]);
@@ -283,29 +283,87 @@ namespace MTGBox.DAO
             }
         }
 
-        public List<Deck> SelectAll()
+        public List<Card> SelectAll()
         {
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandType = CommandType.Text;
-            sqlCommand.CommandText = "select * from deks";
+            sqlCommand.CommandText = "select * from cards";
 
             SqlDataReader sqlDataReader = Db.Select(sqlCommand);
 
-            List<Deck> listDeck = new List<Deck>();
+            List<Card> listCards = new List<Card>();
             if (sqlDataReader.HasRows)
             {
                 while (sqlDataReader.Read())
                 {
-                    Deck deck = new Deck();
-                    deck.Id = (Int32)sqlDataReader["id"];
-                    deck.Name = (String)sqlDataReader["name"];
-                    deck.Description = (String)sqlDataReader["description"];
-                    deck.User = new UserDAO().SelectById((Int32)sqlDataReader["id_user"]);
-                    listDeck.Add(deck);
+                    var dbId = (Int32)sqlDataReader["dbid"];
+
+                    Card card = new Card();
+                    card.DbId = dbId;
+                    card.Id = (String)sqlDataReader["id"];
+                    card.Name = (String)sqlDataReader["name"];
+                    card.OracleId = (String)sqlDataReader["oracle_id"];
+                    card.MtgoId = (Int32)sqlDataReader["mtgo_id"];
+                    card.MtgoFoilId = (Int32)sqlDataReader["mtgo_foil_id"];
+                    card.TcgplayerId = (Int32)sqlDataReader["tcgplayer_id"];
+                    card.Lang = (String)sqlDataReader["lang"];
+                    card.ReleasedAt = (String)sqlDataReader["released_at"];
+                    card.Uri = (String)sqlDataReader["uri"];
+                    card.ScryfallSetUri = (String)sqlDataReader["scryfall_uri"];
+                    card.Layout = (String)sqlDataReader["layout"];
+                    card.HighresImage = (Boolean)sqlDataReader["highres_image"];
+                    card.ManaCost = (String)sqlDataReader["mana_cost"];
+                    card.Cmc = (String)sqlDataReader["cmc"];
+                    card.TypeLine = (String)sqlDataReader["type_line"];
+                    card.Reserved = (Boolean)sqlDataReader["reserved"];
+                    card.Foil = (Boolean)sqlDataReader["foil"];
+                    card.Nonfoil = (Boolean)sqlDataReader["nonfoil"];
+                    card.Oversized = (Boolean)sqlDataReader["oversized"];
+                    card.Promo = (Boolean)sqlDataReader["promo"];
+                    card.Reprint = (Boolean)sqlDataReader["reprint"];
+                    card.Variation = (Boolean)sqlDataReader["variation"];
+                    card.Set = (String)sqlDataReader["set"];
+                    card.SetName = (String)sqlDataReader["set_name"];
+                    card.SetType = (String)sqlDataReader["set_type"];
+                    card.SetUri = (String)sqlDataReader["set_uri"];
+                    card.SetSearchUri = (String)sqlDataReader["set_search_uri"];
+                    card.ScryfallSetUri = (String)sqlDataReader["scryfall_set_uri"];
+                    card.RulingsUri = (String)sqlDataReader["rulings_uri"];
+                    card.OracleText = (String)sqlDataReader["oracle_text"];
+                    card.PrintsSearchUri = (String)sqlDataReader["prints_search_uri"];
+                    card.CollectorNumber = (String)sqlDataReader["collector_number"];
+                    card.Digital = (Boolean)sqlDataReader["digital"];
+                    card.Rarity = (String)sqlDataReader["rarity"];
+                    card.FlavorText = (String)sqlDataReader["flavor_text"];
+                    card.CardBackId = (String)sqlDataReader["card_back_id"];
+                    card.Artist = (String)sqlDataReader["artist"];
+                    card.IllustrationId = (String)sqlDataReader["illustration_id"];
+                    card.BorderColor = (String)sqlDataReader["border_color"];
+                    card.Frame = (String)sqlDataReader["frame"];
+                    card.FullArt = (Boolean)sqlDataReader["full_art"];
+                    card.Textless = (Boolean)sqlDataReader["textless"];
+                    card.Booster = (Boolean)sqlDataReader["booster"];
+                    card.StorySpotlight = (Boolean)sqlDataReader["story_spotlight"];
+                    card.EdhrecRank = (Int32)sqlDataReader["edhrec_rank"];
+
+                    card.MultiverseIds = new MultiverseIdDAO().SelectAllByIdCard(dbId).Select(obj => obj.Value).ToList();
+                    card.Colors = new ColorDAO().SelectAllByIdCard(dbId).Select(obj => obj.Value).ToList();
+                    card.ColorIdentity = new ColorIdentityDAO().SelectAllByIdCard(dbId).Select(obj => obj.Value).ToList();
+                    card.Keywords = new KeywordDAO().SelectAllByIdCard(dbId).Select(obj => obj.Value).ToList();
+                    card.Games = new GameDAO().SelectAllByIdCard(dbId).Select(obj => obj.Value).ToList();
+                    card.ArtistIds = new ArtistIdDAO().SelectAllByIdCard(dbId).Select(obj => obj.Value).ToList();
+                    
+                    card.PurchaseUris = new PurchaseUrisDAO().SelectById((Int32)sqlDataReader["id_purchase_uris"]);
+                    card.RelatedUris = new RelatedUrisDAO().SelectById((Int32)sqlDataReader["id_related_uris"]);
+                    card.Prices = new PricesDAO().SelectById((Int32)sqlDataReader["id_prices"]);
+                    card.Legalities = new LegalitiesDAO().SelectById((Int32)sqlDataReader["id_legalities"]);
+                    card.ImageUris = new ImageUrisDAO().SelectById((Int32)sqlDataReader["image_uris"]);
+
+                    listCards.Add(card);
                 }
                 sqlDataReader.Read();
 
-                return listDeck;
+                return listCards;
             }
             else
             {
