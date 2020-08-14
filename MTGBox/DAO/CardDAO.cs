@@ -267,7 +267,7 @@ namespace MTGBox.DAO
                 selectedCard.ColorIdentity = new ColorIdentityDAO().SelectAllByIdCard(id).Select(obj => obj.Value).ToList();
                 selectedCard.Keywords = new KeywordDAO().SelectAllByIdCard(id).Select(obj => obj.Value).ToList();
                 selectedCard.Games = new GameDAO().SelectAllByIdCard(id).Select(obj => obj.Value).ToList();
-                //selectedCard.ArtistIds = (String)sqlDataReader["artist_ids"];
+                selectedCard.ArtistIds = (String)sqlDataReader["artist_ids"];
 
                 selectedCard.PurchaseUris = new PurchaseUrisDAO().SelectById((Int32)sqlDataReader["id_purchase_uris"]);
                 selectedCard.RelatedUris = new RelatedUrisDAO().SelectById((Int32)sqlDataReader["id_related_uris"]);

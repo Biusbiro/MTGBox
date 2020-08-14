@@ -84,6 +84,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\ArtistIdDAO.cs" />
+    <Compile Include="Model\ArtistId.cs" />
     <Compile Include="DAO\CardDAO.cs" />
     <Compile Include="DAO\ColorDAO.cs" />
     <Compile Include="DAO\ColorIdentityDAO.cs" />
