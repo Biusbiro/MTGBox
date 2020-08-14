@@ -102,6 +102,7 @@
     <Compile Include="FormFeature\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ColorIdentity.cs" />
     <Compile Include="Model\Configuration.cs" />
     <Compile Include="Model\Deck.cs" />
     <Compile Include="Model\EnumReturns.cs" />

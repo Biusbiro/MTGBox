@@ -262,9 +262,9 @@ namespace MTGBox.DAO
                 selectedCard.StorySpotlight = (Boolean)sqlDataReader["story_spotlight"];
                 selectedCard.EdhrecRank = (Int32)sqlDataReader["edhrec_rank"];
 
-                selectedCard.MultiverseIds = new MultiverseIdDAO().SelectAllByIdCard(1).Select(card => card.Id).ToList();
-                //selectedCard.Colors = (String)sqlDataReader["colors"];
-                //selectedCard.ColorIdentity = (String)sqlDataReader["color_identity"];
+                selectedCard.MultiverseIds = new MultiverseIdDAO().SelectAllByIdCard(id).Select(obj => obj.Value).ToList();
+                selectedCard.Colors = new ColorDAO().SelectAllByIdCard(id).Select(obj => obj.Value).ToList();
+                selectedCard.ColorIdentity = (String)sqlDataReader["color_identity"];
                 //selectedCard.Keywords = (String)sqlDataReader["keywords"];
                 //selectedCard.Games = (String)sqlDataReader["games"];
                 //selectedCard.ArtistIds = (String)sqlDataReader["artist_ids"];
