@@ -120,7 +120,7 @@ namespace MTGBox.DAO
                     MultiverseId multiverseId = new MultiverseId();
                     multiverseId.Id = (Int32)sqlDataReader["id"];
                     multiverseId.Value = (Int32)sqlDataReader["value"];
-                    multiverseId.Card = new CardDAO().SelectById((Int32)sqlDataReader["id_card"]);
+                    multiverseId.Card = new CardDAO().SelectById(idCard);
                     multiverseIds.Add(multiverseId);
                 }
                 sqlDataReader.Read();

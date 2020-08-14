@@ -8,5 +8,8 @@ namespace MTGBox.Model
 {
     class ColorIdentity
     {
+        public Int32 Id { get; set; }
+        public String Value { get; set; }
+        public Card Card { get; set; }
     }
 }
