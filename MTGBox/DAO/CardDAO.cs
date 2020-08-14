@@ -265,7 +265,7 @@ namespace MTGBox.DAO
                 selectedCard.MultiverseIds = new MultiverseIdDAO().SelectAllByIdCard(id).Select(obj => obj.Value).ToList();
                 selectedCard.Colors = new ColorDAO().SelectAllByIdCard(id).Select(obj => obj.Value).ToList();
                 selectedCard.ColorIdentity = new ColorIdentityDAO().SelectAllByIdCard(id).Select(obj => obj.Value).ToList();
-                //selectedCard.Keywords = (String)sqlDataReader["keywords"];
+                selectedCard.Keywords = (String)sqlDataReader["keywords"];
                 //selectedCard.Games = (String)sqlDataReader["games"];
                 //selectedCard.ArtistIds = (String)sqlDataReader["artist_ids"];
 

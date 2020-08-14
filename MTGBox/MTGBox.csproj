@@ -87,6 +87,7 @@
     <Compile Include="DAO\CardDAO.cs" />
     <Compile Include="DAO\ColorDAO.cs" />
     <Compile Include="DAO\ColorIdentityDAO.cs" />
+    <Compile Include="DAO\KeywordDAO.cs" />
     <Compile Include="Model\Color.cs" />
     <Compile Include="DAO\Db.cs" />
     <Compile Include="DAO\DeckDAO.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Model\CardPack.cs" />
     <Compile Include="Model\Catalog.cs" />
     <Compile Include="Model\ImageUris.cs" />
+    <Compile Include="Model\Keyword.cs" />
     <Compile Include="Model\Legalities.cs" />
     <Compile Include="Model\MultiverseId.cs" />
     <Compile Include="Model\Prices.cs" />
