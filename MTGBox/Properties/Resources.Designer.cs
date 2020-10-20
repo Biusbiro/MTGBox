@@ -93,6 +93,16 @@ namespace MTGBox.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_20_20 {
+            get {
+                object obj = ResourceManager.GetObject("add-20-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AddIcon {
             get {
                 object obj = ResourceManager.GetObject("AddIcon", resourceCulture);
@@ -166,6 +176,16 @@ namespace MTGBox.Properties {
         internal static System.Drawing.Bitmap MTG_White {
             get {
                 object obj = ResourceManager.GetObject("MTG White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap remove_20_20 {
+            get {
+                object obj = ResourceManager.GetObject("remove-20-20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

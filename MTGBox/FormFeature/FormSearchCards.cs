@@ -1,4 +1,5 @@
 ﻿using MTGBox.Enum;
+using MTGBox.FormFeature;
 using MTGBox.Model;
 using MTGBox.Properties;
 using MTGBox.Requisitions;
@@ -373,5 +374,20 @@ namespace MTGBox
             return type.Equals(String.Empty) ? String.Empty : "type%3A" + type + "+";
         }
         #endregion
+
+        private void picAddCard_Click(object sender, EventArgs e)
+        {
+            var card = (grd.SelectedCells[0].Tag as Card);
+            if (card == null)
+                return;
+
+            AddCardToDeck(card);
+        }
+
+        private void AddCardToDeck(Card card)
+        {
+            var frm = new FormListDeck();
+            frm.Show();
+        }
     }
 }

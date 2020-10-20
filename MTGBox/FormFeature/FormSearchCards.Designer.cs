@@ -103,14 +103,14 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.ContainerGridAndData = new System.Windows.Forms.SplitContainer();
-            this.containerCardAndButtons = new System.Windows.Forms.SplitContainer();
             this.grd = new System.Windows.Forms.DataGridView();
             this.containerCardValues = new System.Windows.Forms.SplitContainer();
+            this.containerCardAndButtons = new System.Windows.Forms.SplitContainer();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.picAddCard = new System.Windows.Forms.PictureBox();
             this.pic1 = new System.Windows.Forms.PictureBox();
             this.grdCardData = new System.Windows.Forms.DataGridView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MainContainerSearch)).BeginInit();
             this.MainContainerSearch.Panel1.SuspendLayout();
             this.MainContainerSearch.Panel2.SuspendLayout();
@@ -143,19 +143,19 @@
             this.ContainerGridAndData.Panel1.SuspendLayout();
             this.ContainerGridAndData.Panel2.SuspendLayout();
             this.ContainerGridAndData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.containerCardAndButtons)).BeginInit();
-            this.containerCardAndButtons.Panel1.SuspendLayout();
-            this.containerCardAndButtons.Panel2.SuspendLayout();
-            this.containerCardAndButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.containerCardValues)).BeginInit();
             this.containerCardValues.Panel1.SuspendLayout();
             this.containerCardValues.Panel2.SuspendLayout();
             this.containerCardValues.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.containerCardAndButtons)).BeginInit();
+            this.containerCardAndButtons.Panel1.SuspendLayout();
+            this.containerCardAndButtons.Panel2.SuspendLayout();
+            this.containerCardAndButtons.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAddCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCardData)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // MainContainerSearch
@@ -933,24 +933,6 @@
             this.ContainerGridAndData.SplitterDistance = 652;
             this.ContainerGridAndData.TabIndex = 0;
             // 
-            // containerCardAndButtons
-            // 
-            this.containerCardAndButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.containerCardAndButtons.Location = new System.Drawing.Point(0, 0);
-            this.containerCardAndButtons.Name = "containerCardAndButtons";
-            this.containerCardAndButtons.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // containerCardAndButtons.Panel1
-            // 
-            this.containerCardAndButtons.Panel1.Controls.Add(this.panel3);
-            // 
-            // containerCardAndButtons.Panel2
-            // 
-            this.containerCardAndButtons.Panel2.Controls.Add(this.pic1);
-            this.containerCardAndButtons.Size = new System.Drawing.Size(214, 300);
-            this.containerCardAndButtons.SplitterDistance = 40;
-            this.containerCardAndButtons.TabIndex = 1;
-            // 
             // grd
             // 
             this.grd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -981,6 +963,45 @@
             this.containerCardValues.SplitterDistance = 300;
             this.containerCardValues.TabIndex = 0;
             // 
+            // containerCardAndButtons
+            // 
+            this.containerCardAndButtons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.containerCardAndButtons.Location = new System.Drawing.Point(0, 0);
+            this.containerCardAndButtons.Name = "containerCardAndButtons";
+            this.containerCardAndButtons.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // containerCardAndButtons.Panel1
+            // 
+            this.containerCardAndButtons.Panel1.Controls.Add(this.panel3);
+            // 
+            // containerCardAndButtons.Panel2
+            // 
+            this.containerCardAndButtons.Panel2.Controls.Add(this.pic1);
+            this.containerCardAndButtons.Size = new System.Drawing.Size(214, 300);
+            this.containerCardAndButtons.SplitterDistance = 40;
+            this.containerCardAndButtons.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.picAddCard);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(214, 40);
+            this.panel3.TabIndex = 0;
+            // 
+            // picAddCard
+            // 
+            this.picAddCard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picAddCard.Image = global::MTGBox.Properties.Resources.add_20_20;
+            this.picAddCard.Location = new System.Drawing.Point(9, 11);
+            this.picAddCard.Name = "picAddCard";
+            this.picAddCard.Size = new System.Drawing.Size(20, 20);
+            this.picAddCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAddCard.TabIndex = 68;
+            this.picAddCard.TabStop = false;
+            this.picAddCard.Click += new System.EventHandler(this.picAddCard_Click);
+            // 
             // pic1
             // 
             this.pic1.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -1010,26 +1031,6 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(214, 40);
-            this.panel3.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::MTGBox.Properties.Resources.AddIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 68;
-            this.pictureBox1.TabStop = false;
             // 
             // FormCardList
             // 
@@ -1092,19 +1093,19 @@
             this.ContainerGridAndData.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ContainerGridAndData)).EndInit();
             this.ContainerGridAndData.ResumeLayout(false);
-            this.containerCardAndButtons.Panel1.ResumeLayout(false);
-            this.containerCardAndButtons.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.containerCardAndButtons)).EndInit();
-            this.containerCardAndButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grd)).EndInit();
             this.containerCardValues.Panel1.ResumeLayout(false);
             this.containerCardValues.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.containerCardValues)).EndInit();
             this.containerCardValues.ResumeLayout(false);
+            this.containerCardAndButtons.Panel1.ResumeLayout(false);
+            this.containerCardAndButtons.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.containerCardAndButtons)).EndInit();
+            this.containerCardAndButtons.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picAddCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCardData)).EndInit();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1192,6 +1193,6 @@
         private System.Windows.Forms.GroupBox grpTypes;
         private System.Windows.Forms.SplitContainer containerCardAndButtons;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picAddCard;
     }
 }

@@ -117,47 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Grimory-50x50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Grimory-50x50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Search-50x50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Search-50x50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AddIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AddIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add-20-20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add-20-20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="8912941771580272414-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\8912941771580272414-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MTG Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MTG Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MTG Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MTG Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MTG Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MTG Red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="14546304751580272406-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\14546304751580272406-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MTG Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MTG Green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MagicLogoDefaultBlock-100x100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MagicLogoDefaultBlock-100x100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MTG White" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MTG White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="8912941771580272414-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\8912941771580272414-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="remove-20-20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\remove-20-20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>
